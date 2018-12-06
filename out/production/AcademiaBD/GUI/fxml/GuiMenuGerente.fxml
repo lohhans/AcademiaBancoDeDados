@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controles.ControleMenuGerente">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../telasGUI/menuGerente.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="botaoCadastrarFuncionario" layoutX="97.0" layoutY="239.0" mnemonicParsing="false" onAction="#chamarTelaCadastroFuncionario" prefHeight="29.0" prefWidth="213.0" text="Cadastrar Funcionário">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoAtualizarFuncionario" layoutX="97.0" layoutY="307.0" mnemonicParsing="false" onAction="#chamarTelaAtualizarFuncionario" prefHeight="29.0" prefWidth="213.0" text="Atualizar info. Funcionário">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoDemitirFuncionario" layoutX="97.0" layoutY="368.0" mnemonicParsing="false" onAction="#chamarTelaDemitirFuncionario" prefHeight="29.0" prefWidth="213.0" text="Demitir Funcionário">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoConferirPagamento" layoutX="310.0" layoutY="439.0" mnemonicParsing="false" onAction="#chamarTelaConferirPagamentoClientes" prefHeight="29.0" prefWidth="181.0" text="Conferir Pagamento">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoCadastrarModalidade" layoutX="490.0" layoutY="239.0" mnemonicParsing="false" onAction="#chamarTelaCadastrarModalidade" prefHeight="29.0" prefWidth="213.0" text="Cadastrar Modalidade">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoAtualizarModalidade" layoutX="490.0" layoutY="307.0" mnemonicParsing="false" onAction="#chamarTelaAtualizarModalidade" prefHeight="29.0" prefWidth="213.0" text="Atualizar Modalidade">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoRemoverModalidade" layoutX="490.0" layoutY="368.0" mnemonicParsing="false" onAction="#chamarTelaRemoverModalidade" prefHeight="29.0" prefWidth="213.0" text="Remover Modalidade">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoVoltar" layoutX="20.0" layoutY="560.0" mnemonicParsing="false" onAction="#acaoBotaoVoltar" text="Sair">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

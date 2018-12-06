@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controles.ControleAtualizarCliente">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../telasGUI/atualizarCliente.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="botaoAtualizarNome" layoutX="270.0" layoutY="197.0" mnemonicParsing="false" onAction="#acaoChamarTelaAtualizarNomeCliente" prefHeight="29.0" prefWidth="260.0" text="Atualizar Nome">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="botaoAtualizarTelefone" layoutX="270.0" layoutY="257.0" mnemonicParsing="false" onAction="#acaoChamarTelaAtualizarTelefoneCliente" prefHeight="29.0" prefWidth="260.0" text="Atualizar Telefone">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoAtualizarEndereco" layoutX="270.0" layoutY="317.0" mnemonicParsing="false" onAction="#acaoChamarTelaAtualizarEnderecoCliente" prefHeight="29.0" prefWidth="260.0" text="Atualizar Endereço">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoAtualizarContatoEmergencia" layoutX="270.0" layoutY="377.0" mnemonicParsing="false" onAction="#acaoChamarTelaAtualizarContatoEmergenciaCliente" text="Atualizar Contato de Emergencia">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoVoltar" layoutX="20.0" layoutY="560.0" mnemonicParsing="false" onAction="#botaoVoltar" text="Voltar">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controles.ControleAtualizarFuncionario">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="794.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../telasGUI/atualizarFuncionario.png" />
+         </image></ImageView>
+      <Button fx:id="botaoAtualizarNome" layoutX="292.0" layoutY="166.0" mnemonicParsing="false" onAction="#acaoChamarTelaAtualizarNomeFuncionario" prefHeight="29.0" prefWidth="217.0" text="Atualizar Nome">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoAtualizarTelefone" layoutX="292.0" layoutY="226.0" mnemonicParsing="false" onAction="#acaoChamarTelaAtualizarTelefoneFuncionario" prefHeight="29.0" prefWidth="217.0" text="Atualizar Telefone">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoAtualizarEndereco" layoutX="292.0" layoutY="286.0" mnemonicParsing="false" onAction="#acaoChamarTelaAtualizarEnderecoFuncionario" prefHeight="29.0" prefWidth="217.0" text="Atualizar Endereço">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoDefinirGerente" layoutX="292.0" layoutY="346.0" mnemonicParsing="false" onAction="#acaoChamarTelaDefinirGerente" prefHeight="29.0" prefWidth="217.0" text="Definir Gerente">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoMudarSenha" layoutX="292.0" layoutY="406.0" mnemonicParsing="false" onAction="#acaoChamarTelaMudarSenha" prefHeight="29.0" prefWidth="217.0" text="Mudar Senha">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoVoltar" layoutX="20.0" layoutY="560.0" mnemonicParsing="false" onAction="#botaoVoltar" text="Voltar">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

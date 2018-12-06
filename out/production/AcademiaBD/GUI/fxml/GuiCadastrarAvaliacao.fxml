@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controles.ControleCadastrarAvaliacao">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="794.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../telasGUI/cadastarAvaliacao.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="600.0" fitWidth="465.0" layoutX="-181.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../telasGUI/corpohumano.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelDireito" layoutX="632.0" layoutY="132.0" prefHeight="26.0" prefWidth="78.0" text="Direito:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelEsquerdo" layoutX="230.0" layoutY="132.0" prefHeight="26.0" prefWidth="90.0" text="Esquerdo:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="cAbdominal" layoutX="385.0" layoutY="206.0" prefHeight="26.0" prefWidth="186.0" promptText="Circunferencia Abdominal" />
+      <TextField fx:id="torax" layoutX="385.0" layoutY="158.0" prefHeight="26.0" prefWidth="186.0" promptText="Torax" />
+      <TextField fx:id="cintura" layoutX="385.0" layoutY="249.0" prefHeight="26.0" prefWidth="186.0" promptText="Cintura" />
+      <TextField fx:id="antebracoEsquerdo" layoutX="197.0" layoutY="206.0" prefHeight="25.0" prefWidth="156.0" promptText="Antebraço Esquerdo" />
+      <TextField fx:id="antebracoDireito" layoutX="593.0" layoutY="206.0" prefHeight="25.0" prefWidth="156.0" promptText="Antebraço Direito" />
+      <TextField fx:id="bracoEsquerdo" layoutX="197.0" layoutY="158.0" prefHeight="25.0" prefWidth="156.0" promptText="Braço Esquerdo" />
+      <TextField fx:id="bracoDireito" layoutX="593.0" layoutY="158.0" prefHeight="25.0" prefWidth="156.0" promptText="Braço Direito" />
+      <TextField fx:id="coxaEsquerda" layoutX="197.0" layoutY="304.0" prefHeight="26.0" prefWidth="156.0" promptText="Coxa Esquerda" />
+      <TextField fx:id="coxaDireita" layoutX="593.0" layoutY="304.0" prefHeight="25.0" prefWidth="156.0" promptText="Coxa Direita" />
+      <TextField fx:id="panturrilhaEsquerda" layoutX="197.0" layoutY="365.0" prefHeight="26.0" prefWidth="156.0" promptText="Panturilha Esquerda" />
+      <TextField fx:id="panturrilhaDireita" layoutX="593.0" layoutY="365.0" prefHeight="25.0" prefWidth="156.0" promptText="Panturilha Direita" />
+      <Button fx:id="botaoCadastrar" layoutX="452.0" layoutY="538.0" mnemonicParsing="false" onAction="#acaoAdicionarAvaliacao" text="Cadastrar">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="botaoVoltar" layoutX="337.0" layoutY="538.0" mnemonicParsing="false" onAction="#acaoBotaoVoltar" prefHeight="26.0" prefWidth="90.0" text="Voltar">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <TextField fx:id="cpf" layoutX="308.0" layoutY="486.0" prefHeight="26.0" prefWidth="303.0" promptText="CPF do cliente" />
+      <Label fx:id="labelCpf" layoutX="244.0" layoutY="486.0" prefHeight="26.0" prefWidth="43.0" text="CPF:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="quadril" layoutX="385.0" layoutY="291.0" prefHeight="26.0" prefWidth="186.0" promptText="Quadril" />
+   </children>
+</AnchorPane>

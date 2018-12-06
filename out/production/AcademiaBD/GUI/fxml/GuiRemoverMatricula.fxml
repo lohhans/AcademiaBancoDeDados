@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controles.ControleRemoverMatricula">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../telasGUI/removerMatricula.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelCpf" layoutX="164.0" layoutY="291.0" text="CPF:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="cpf" layoutX="234.0" layoutY="287.0" prefHeight="26.0" prefWidth="402.0" promptText="Ex.: 123.456.789-00" />
+      <Button fx:id="botaoRemover" layoutX="358.0" layoutY="344.0" mnemonicParsing="false" onAction="#acaoRemoverMatricula" text="Remover">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoVoltar" layoutX="20.0" layoutY="560.0" mnemonicParsing="false" onAction="#acaoBotaoVoltar" text="Voltar">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Label fx:id="labelMulta" layoutX="228.0" layoutY="300.0" prefHeight="44.0" prefWidth="367.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

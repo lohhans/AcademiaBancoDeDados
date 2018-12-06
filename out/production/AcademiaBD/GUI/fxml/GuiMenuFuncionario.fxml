@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controles.ControleMenuFuncionario">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../telasGUI/menuFuncionario.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="botaoCadastrarCliente" layoutX="120.0" layoutY="285.0" mnemonicParsing="false" onAction="#acaoChamarTelaCadastrarCliente" prefHeight="29.0" prefWidth="199.0" text="Cadastrar cliente">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="botaoRealizarAvaliacao" layoutX="485.0" layoutY="230.0" mnemonicParsing="false" onAction="#acaoChamarTelaCadastrarAvaliacao" prefHeight="29.0" prefWidth="199.0" text="Cadastrar avaliação">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoRealizarMatricula" layoutX="120.0" layoutY="341.0" mnemonicParsing="false" onAction="#acaoChamarTelaRealizarMatricula" prefHeight="29.0" prefWidth="199.0" text="Realizar matricula">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="botaoAtualizarInfoCliente" layoutX="120.0" layoutY="230.0" mnemonicParsing="false" onAction="#acaoChamarTelaAtualizarCliente" prefHeight="29.0" prefWidth="199.0" text="Atualizar info. do cliente">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoBuscarAvaliacao" layoutX="485.0" layoutY="285.0" mnemonicParsing="false" onAction="#acaoChamarTelaBuscarAvaliacao" prefHeight="29.0" prefWidth="199.0" text="Buscar Avaliação">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoRemoverMatricula" layoutX="317.0" layoutY="404.0" mnemonicParsing="false" onAction="#acaoChamarTelaRemoverMatricula" prefHeight="29.0" prefWidth="169.0" text="Remover Matricula">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoPagarMensalidade" layoutX="485.0" layoutY="341.0" mnemonicParsing="false" onAction="#acaoChamarTelaPagarMensalidade" prefHeight="29.0" prefWidth="199.0" text="Pagar mensalidade">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoVoltar" layoutX="20.0" layoutY="560.0" mnemonicParsing="false" onAction="#acaoBotaoVoltar" text="Sair">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

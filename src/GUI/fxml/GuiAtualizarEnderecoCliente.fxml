@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controles.ControleAtualizarEnderecoCliente">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../telasGUI/atualizarEndereco.png" />
+         </image></ImageView>
+      <Label fx:id="labelCep" layoutX="136.0" layoutY="184.0" text="CEP:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="cep" layoutX="216.0" layoutY="182.0" prefHeight="25.0" prefWidth="460.0" promptText="Apenas números (8 dígitos)" />
+      <Label fx:id="labelNumero" layoutX="136.0" layoutY="254.0" text="Número:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="numero" layoutX="216.0" layoutY="252.0" prefHeight="25.0" prefWidth="460.0" promptText="Insira o novo número da sua casa" />
+      <Label fx:id="labelRua" layoutX="136.0" layoutY="324.0" text="Rua:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="rua" layoutX="216.0" layoutY="322.0" prefHeight="25.0" prefWidth="460.0" promptText="Insira o novo nome da sua rua" />
+      <Label fx:id="labelBairro" layoutX="136.0" layoutY="394.0" text="Bairro:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="bairro" layoutX="216.0" layoutY="392.0" prefHeight="25.0" prefWidth="460.0" promptText="Insira o novo nome do bairro" />
+      <Label fx:id="labelCidade" layoutX="136.0" layoutY="464.0" text="Cidade:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="cidade" layoutX="216.0" layoutY="462.0" prefHeight="25.0" prefWidth="460.0" promptText="Insira o novo da nova cidade" />
+      <Button fx:id="botaoAtualizar" layoutX="358.0" layoutY="520.0" mnemonicParsing="false" onAction="#acaoAtualizarEnderecoCliente" text="Atualizar">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoVoltar" layoutX="20.0" layoutY="560.0" mnemonicParsing="false" onAction="#acaoBotaoVoltar" text="Voltar">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <TextField fx:id="cpf" layoutX="216.0" layoutY="112.0" prefHeight="25.0" prefWidth="460.0" promptText="Apenas números (11 dígitos)" />
+      <Label fx:id="labelCpf" layoutX="136.0" layoutY="116.0" text="CPF:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
