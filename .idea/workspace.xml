@@ -2,162 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="707ea96e-1e22-4cc4-817b-70cfcd236255" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mariadb_java_client_2_3_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/GUI.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleAtualizarCliente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleAtualizarEmergencia.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleAtualizarEnderecoCliente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleAtualizarEnderecoFuncionario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleAtualizarFuncionario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleAtualizarModalidade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleAtualizarNomeCliente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleAtualizarNomeFuncionario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleAtualizarNomeModalidade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleAtualizarPrecoModalidade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleAtualizarTelefoneCliente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleAtualizarTelefoneFuncionario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleBuscarAvaliacao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleCadastrarAvaliacao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleCadastrarCliente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleCadastrarFuncionario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleCadastrarModalidade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleConferirPagamentoClientes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleDefinirGerente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleDemitirFuncionario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleGuiLogin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleMenuFuncionario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleMenuGerente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleMudarSenha.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControlePagarMensalidade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleRealizarMatricula.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleRemoverMatricula.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/controles/ControleRemoverModalidade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiAtualizarCliente.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiAtualizarEmergencia.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiAtualizarEnderecoCliente.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiAtualizarEnderecoFuncionario.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiAtualizarFuncionario.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiAtualizarModalidade.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiAtualizarNomeCliente.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiAtualizarNomeFuncionario.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiAtualizarNomeModalidade.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiAtualizarPrecoModalidade.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiAtualizarTelefoneCliente.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiAtualizarTelefoneFuncionario.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiBuscarAvaliacao.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiCadastrarAvaliacao.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiCadastrarCliente.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiCadastrarFuncionario.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiCadastrarModalidade.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiConferirPagamentoClientes.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiDefinirGerente.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiDemitirFuncionario.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiLogin.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiMenuFuncionario.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiMenuGerente.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiMudarSenha.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiPagarMensalidade.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiRealizarMatricula.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiRemoverMatricula.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/fxml/GuiRemoverModalidade.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/AtualizacaoDeDadosConcluidaAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/AvaliacaoNaoEncontradaAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/CadastroConcluidoAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/CepInvalidoAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/ClienteJaMatriculadoAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/ClienteNaoMatriculadoAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/CpfInvalidoAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/DadosInvalidosAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/DataErradaAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/FuncionarioDemitidoAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/ImpossivelRealizarOperacaoAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/ImpossivelRemoverMatriculaDeUmMesAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/InformeAvaliacaoAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/MatriculaRemovidaAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/MensalidadeEmAbertoAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/MensalidadesDosCLientesPagasAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/MensalidadesPagasAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/ModalidadeJaCadastradaAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/ModalidadeNaoEncontradaAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/ModalidadeRemovidaAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/ModalidadesErradasAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/ModalidadesNaoEscolhidasAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/PagarMensalidadeAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/PessoaJaCadastradaAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/PessoaNaoEncontradaAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/QuantidadeDeMesesIndisponivelAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/SenhaIncorretaAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/SexoIncorretoAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasDeAlerta/StringVaziaAlerta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/Login.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/atualizarCliente.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/atualizarEmergencia.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/atualizarEndereco.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/atualizarFuncionario.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/atualizarModalidade.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/atualizarNome.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/atualizarPreco.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/atualizarSenha.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/atualizarTelefone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/buscarAvaliacao.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/cadastarAvaliacao.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/cadastrarCliente.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/cadastrarFuncionario.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/cadastrarModalidade.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/conferirPagamento.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/corpohumano.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/definirGerente.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/demitirFuncionario.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/menuFuncionario.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/menuGerente.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/pagarMensalidade.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/realizarMatricula.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/removerMatricula.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/GUI/telasGUI/removerModalidade.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/dados/RepositorioMatricula.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/dados/RepositorioMensalidade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/dados/RepositorioModalidade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/dados/RepositorioPessoa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/dados/interfaces/IRepositorioMatricula.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/dados/interfaces/IRepositorioMensalidade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/dados/interfaces/IRepositorioModalidade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/dados/interfaces/IRepositorioPessoa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/fachada/Fachada.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/NegocioMatricula.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/NegocioMensalidade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/NegocioModalidade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/NegocioPessoa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/entidades/Avaliacao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/entidades/Cliente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/entidades/Endereco.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/entidades/Funcionario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/entidades/Matricula.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/entidades/Mensalidade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/entidades/Modalidade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/entidades/Pessoa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/exception/ArrayListVazioException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/exception/AvaliacaoNaoEncontradaException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/exception/CaractereInvalidoException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/exception/CepInvalidoException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/exception/ClienteComMensalidadeAbertaException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/exception/ClienteJaMatriculadoException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/exception/ClienteNaoMatriculadoException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/exception/CpfInvalidoException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/exception/DadosInvalidosException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/exception/ImpossivelRemoverMatriculaDeUmMesException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/exception/MensalidadeEmAbertoException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/exception/MensalidadesPagasException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/exception/ModalidadeJaCadastradaException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/exception/ModalidadeNaoEncontradaException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/exception/PessoaJaCadastradaException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/exception/PessoaNaoEncontradaException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/exception/QuantidadeDeMesesIndisponivelException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/exception/SenhaIncorretaException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademiaBD/negocios/exception/SexoIncorretoException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mariadb/Mariadb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mariadb/Mariadb.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -185,8 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mariadb/Mariadb.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+            <state relative-caret-position="420">
+              <caret line="28" column="66" selection-start-line="28" selection-start-column="66" selection-end-line="28" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -194,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fachada/Fachada.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+            <state relative-caret-position="645">
+              <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -214,18 +61,9 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="462">
-                <caret line="62" column="1" lean-forward="true" selection-start-line="62" selection-start-column="1" selection-end-line="62" selection-end-column="1" />
+                <caret line="62" column="126" lean-forward="true" selection-start-line="62" selection-start-column="126" selection-end-line="62" selection-end-column="126" />
               </first_editor>
               <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GUI/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="72" column="18" selection-start-line="72" selection-start-column="18" selection-end-line="72" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -248,8 +86,8 @@
         <option value="$PROJECT_DIR$/src/conexao/Conexao.java" />
         <option value="$PROJECT_DIR$/src/mariadb/Conexao.java" />
         <option value="$PROJECT_DIR$/src/GUI/Main.java" />
-        <option value="$PROJECT_DIR$/src/mariadb/Mariadb.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/mariadb/Mariadb.java" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
@@ -365,18 +203,19 @@
       <option name="presentableId" value="Default" />
       <updated>1544056069304</updated>
       <workItem from="1544056077673" duration="241000" />
-      <workItem from="1544228259605" duration="7437000" />
+      <workItem from="1544228259605" duration="7572000" />
+      <workItem from="1544239033675" duration="588000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9859000" />
+    <option name="totallyTimeSpent" value="10582000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26136363" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2659091" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -414,6 +253,13 @@
     <entry file="file://$PROJECT_DIR$/AcademiaBD.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/fachada/Fachada.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -421,24 +267,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fachada/Fachada.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
+        <state relative-caret-position="930">
           <caret line="72" column="18" selection-start-line="72" selection-start-column="18" selection-end-line="72" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mariadb/Mariadb.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+        <state relative-caret-position="420">
+          <caret line="28" column="66" selection-start-line="28" selection-start-column="66" selection-end-line="28" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -446,7 +285,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="462">
-            <caret line="62" column="1" lean-forward="true" selection-start-line="62" selection-start-column="1" selection-end-line="62" selection-end-column="1" />
+            <caret line="62" column="126" lean-forward="true" selection-start-line="62" selection-start-column="126" selection-end-line="62" selection-end-column="126" />
           </first_editor>
           <second_editor />
         </state>

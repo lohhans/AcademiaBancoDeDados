@@ -26,7 +26,7 @@ public class Mariadb {
             //STEP 4: Execute a query
             stmt = conn.createStatement();
 
-            String sql = "CREATE TABLE IF NOT EXISTS REGISTRATIONAL "
+            String sql = "CREATE TABLE IF NOT EXISTS REGISTRATION "
                     + "(id INTEGER not NULL, "
                     + " first VARCHAR(255), "
                     + " last VARCHAR(255), "

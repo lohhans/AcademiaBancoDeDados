@@ -1,6 +1,6 @@
-# **Projeto de Banco de Dados**
+# **Projeto de Banco de Dados - Academia**
 
-### Para funcionar você deve:
+### Para funcionar você deve fazer o seguinte:
 
 1 - Instalar o MySQL:
 
@@ -48,7 +48,7 @@ $ USE academia;
 
 7 - Ótimo, usuário criado. Agora só linkar no projeto baixado!
 
-8 - Com o projeto aberto no IntelliJ, aperte: ``ctrl+alt+shif+s``.
+8 - Com o projeto aberto no IntelliJ, aperte: ``ctrl+alt+shift+s``.
 
 9 - Vá em Libraries, no lado esquerdo da janela que abriu.
 
@@ -58,6 +58,6 @@ $ USE academia;
 
 12 - Pronto, tudo certo para começar a implementar o Banco de Dados.
 
-
-> Observação: Projeto criado usando o Java 8 (java version "1.8.0_191"
-)
+> Observação: Projeto criado usando o [Java 8 (java version "1.8.0_191"
+)](https://docs.google.com/document/d/1yixggYjS2GKPVY8KZX7yyNcQQIZq7-JNXaBpTbH422A/edit?usp=sharing).  
+> Projeto reutilizado da disciplina de [POO](https://github.com/lohhans/projetoPOO), aplicando os conceitos de Banco de Dados.
