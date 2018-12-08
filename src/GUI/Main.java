@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import mariadb.Mariadb;
 import negocios.exception.*;
 
 import java.io.IOException;
@@ -66,7 +67,10 @@ public class Main extends Application {
             e.printStackTrace();
         }
 
-        launch(args);
+//        launch(args);
+
+        Mariadb db = new Mariadb();
+        db.main();
     }
 
 }
