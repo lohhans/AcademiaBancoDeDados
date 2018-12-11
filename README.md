@@ -50,11 +50,11 @@ $ USE academia;
 
 8 - Com o projeto aberto no IntelliJ, aperte: ``ctrl+alt+shift+s``.
 
-9 - Vá em Libraries, no lado esquerdo da janela que abriu.
+9 - Vá em ``Libraries``, no lado esquerdo da janela que abriu.
 
 10 - Clique no ``+`` para adicionar uma biblioteca, e selecione a opção ``Java``
 
-11 - Na pasta raiz do projeto baixado tem um arquivo chamado ``mariadb-java-client-2.3.0.jar``, selecione-o, aperte ``OK``, aplique com o botão ``Apply`` e em seguida ``OK`` novamente.
+11 - Na pasta raiz do projeto baixado tem um arquivo chamado ``connection-java-client-2.3.0.jar``, selecione-o, aperte ``OK``, aplique com o botão ``Apply`` e em seguida ``OK`` novamente.
 
 12 - Pronto, tudo certo para começar a implementar o Banco de Dados.
 

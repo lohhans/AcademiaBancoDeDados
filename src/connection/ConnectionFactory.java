@@ -1,20 +1,69 @@
 //STEP 1. Import required packages
-package mariadb;
+package connection;
 
 import java.sql.*;
 
-public class Mariadb {
+public class ConnectionFactory {
     // JDBC driver name and database URL
 
-    static final String JDBC_DRIVER = "org.mariadb.jdbc.Driver";
-    static final String DB_URL = "jdbc:mariadb://localhost/academia";
+    static final String JDBC_DRIVER = "org.connection.jdbc.Driver";
+    static final String DB_URL = "jdbc:connection://localhost/academia";
 
     //  Database credentials
     static final String USER = "academia";
     static final String PASS = "academia";
 
+    public static java.sql.Connection getConnection(){
+
+        try {
+            Class.forName(JDBC_DRIVER);
+            return DriverManager.getConnection(DB_URL, USER, PASS);
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new RuntimeException("Erro na conexão", e);
+        }
+    }
+
+    public static void closeConnection(java.sql.Connection con){
+
+        if(con != null){
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.err.println("Error: "+e);
+            }
+        }
+    }
+
+    public static void closeConnection(java.sql.Connection con, PreparedStatement stmt){
+
+        if(stmt != null){
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+                System.err.println("Error: "+e);
+            }
+        }
+
+        closeConnection(con);
+    }
+
+    public static void closeConnection(java.sql.Connection con, PreparedStatement stmt, ResultSet rs){
+
+        if(rs != null){
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                System.err.println("Error: "+e);
+            }
+        }
+
+        closeConnection(con, stmt);
+    }
+
+    /*
+
     public void main() {
-        Connection conn = null;
+        ConnectionFactory conn = null;
         Statement stmt = null;
         try {
             //STEP 2: Register JDBC driver
@@ -57,4 +106,7 @@ public class Mariadb {
         }//end try
         System.out.println("Goodbye!");
     }//end main
+
+    */
+
 }//end JDBCExample

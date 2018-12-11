@@ -1,12 +1,12 @@
 package GUI;
 
+import connection.ConnectionFactory;
 import fachada.Fachada;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import mariadb.Mariadb;
 import negocios.exception.*;
 
 import java.io.IOException;
@@ -51,26 +51,14 @@ public class Main extends Application {
             fachada.cadastrarModalidade("Academia", 60);
             fachada.cadastrarModalidade("Fit Dance", 50);
             fachada.cadastrarModalidade("Jump", 55);
-        } catch (PessoaJaCadastradaException e) {
-            e.printStackTrace();
-        } catch (CepInvalidoException e) {
-            e.printStackTrace();
-        } catch (SexoIncorretoException e) {
-            e.printStackTrace();
-        } catch (CpfInvalidoException e) {
-            e.printStackTrace();
-        } catch (DadosInvalidosException e) {
-            e.printStackTrace();
-        } catch (PessoaNaoEncontradaException e) {
-            e.printStackTrace();
-        } catch (ModalidadeJaCadastradaException e) {
+        } catch (PessoaJaCadastradaException | CepInvalidoException | SexoIncorretoException | CpfInvalidoException | DadosInvalidosException | PessoaNaoEncontradaException | ModalidadeJaCadastradaException e) {
             e.printStackTrace();
         }
 
 //        launch(args);
 
-        Mariadb db = new Mariadb();
-        db.main();
+        ConnectionFactory db = new ConnectionFactory();
+//        db.main();
     }
 
 }
