@@ -1,5 +1,7 @@
 package negocios;
 
+import dados.DbCliente;
+import dados.DbFuncionario;
 import dados.interfaces.IRepositorioPessoa;
 import negocios.entidades.Avaliacao;
 import negocios.entidades.Cliente;
@@ -12,20 +14,54 @@ import negocios.exception.PessoaNaoEncontradaException;
 public class NegocioPessoa {
 
     private IRepositorioPessoa repositorioPessoa;
+    private DbCliente dbCliente;
+    private DbFuncionario dbFuncionario;
 
     public NegocioPessoa(IRepositorioPessoa repositorioPessoa) {
         this.repositorioPessoa = repositorioPessoa;
     }
 
     public void adicionarPessoa(Pessoa novaPessoa) throws PessoaJaCadastradaException {
-        if (repositorioPessoa.esvaziou()){
-            repositorioPessoa.adicionarPessoa(novaPessoa);
-        } else if (repositorioPessoa.buscarPessoa(novaPessoa) == null){
-            repositorioPessoa.adicionarPessoa(novaPessoa);
-        } else {
-            throw new PessoaJaCadastradaException();
+
+        if (novaPessoa instanceof Cliente){
+            adicionarCliente((Cliente) novaPessoa);
+        } else{
+            adicionarFuncionario((Funcionario) novaPessoa);
         }
     }
+
+    public void adicionarCliente(Cliente cliente){
+
+        if (dbCliente.esvaziou()){
+            dbCliente.adicionarCliente(cliente);
+        } else if (dbCliente.buscarCliente(cliente) == null){
+            dbCliente.adicionarCliente(cliente);
+        } else {
+            try {
+                throw new PessoaJaCadastradaException();
+            } catch (PessoaJaCadastradaException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void adicionarFuncionario(Funcionario funcionario){
+
+        if (dbFuncionario.esvaziou()){
+            dbFuncionario.adicionarFuncionario(funcionario);
+        } else if (dbFuncionario.buscarFuncionario(funcionario) == null){
+            dbFuncionario.adicionarFuncionario(funcionario);
+        } else {
+            try {
+                throw new PessoaJaCadastradaException();
+            } catch (PessoaJaCadastradaException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+////////////////////////////////////////FALTA MUDAR////////////////////////////////////////////////////////////////
+
 
     public void atualizarPessoa(String cpfPessoa, Pessoa pessoaAlterada) throws PessoaNaoEncontradaException {
         if (repositorioPessoa.buscarPessoa(cpfPessoa) == null){
@@ -79,4 +115,7 @@ public class NegocioPessoa {
         }
     }
 
+
 }
+
+

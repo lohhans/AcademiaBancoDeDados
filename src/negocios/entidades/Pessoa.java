@@ -13,6 +13,18 @@ public abstract class Pessoa {
     private Endereco endereco;
     private Date dataDeNascimento;
 
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public Date getDataDeNascimento() {
+        return dataDeNascimento;
+    }
+
     public Pessoa(String nome, String sexo, Date dataDeNascimento, String cpf, String telefone, Endereco endereco) {
         this.nome = nome;
         this.sexo = sexo;
@@ -38,7 +50,6 @@ public abstract class Pessoa {
         return cpf;
     }
 
-
     public String getTelefone() {
         return telefone;
     }
@@ -55,9 +66,6 @@ public abstract class Pessoa {
         this.endereco = endereco;
     }
 
-    public Date getDataDeNascimento() {
-        return dataDeNascimento;
-    }
 
     public void setDataDeNascimento(Date dataDeNascimento) {
         this.dataDeNascimento = dataDeNascimento;

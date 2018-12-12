@@ -1,5 +1,6 @@
 package negocios;
 
+import dados.DbModalidade;
 import dados.interfaces.IRepositorioModalidade;
 import negocios.entidades.Modalidade;
 import negocios.exception.ModalidadeJaCadastradaException;
@@ -8,6 +9,7 @@ import negocios.exception.ModalidadeNaoEncontradaException;
 public class NegocioModalidade {
 
     private IRepositorioModalidade repositorioModalidade;
+    private DbModalidade dbModalidade;
 
     public NegocioModalidade(IRepositorioModalidade repositorioModalidade){
         this.repositorioModalidade = repositorioModalidade;
@@ -34,6 +36,7 @@ public class NegocioModalidade {
             repositorioModalidade.cadastrarModalidade(modalidade);
         } else if (repositorioModalidade.buscarModalidade(modalidade) == null){
             repositorioModalidade.cadastrarModalidade(modalidade);
+//            dbModalidade.cadastrarModalidade(modalidade);
         } else {
             throw new ModalidadeJaCadastradaException();
         }
