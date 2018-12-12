@@ -59,25 +59,43 @@ public class NegocioPessoa {
             }
         }
     }
-    
-////////////////////////////////////////FALTA MUDAR////////////////////////////////////////////////////////////////
-
 
     public void atualizarPessoa(String cpfPessoa, Pessoa pessoaAlterada) throws PessoaNaoEncontradaException {
-        if (repositorioPessoa.buscarPessoa(cpfPessoa) == null){
+
+        if (pessoaAlterada instanceof Cliente) {
+            atualizarCliente(cpfPessoa, (Cliente) pessoaAlterada);
+        } else {
+            atualizarFuncionario(cpfPessoa, (Funcionario) pessoaAlterada);
+        }
+    }
+    public void atualizarCliente (String cpfCliente, Cliente clienteAlterado) throws PessoaNaoEncontradaException{
+
+        if (dbCliente.buscarCliente(cpfCliente) == null){
             throw new PessoaNaoEncontradaException();
         } else {
-            repositorioPessoa.atualizarPessoa(cpfPessoa, pessoaAlterada);
+            dbCliente.atualizarCliente(cpfCliente, clienteAlterado);
         }
     }
 
-    public void removerFuncionario(Funcionario funcionarioRecebido) throws PessoaNaoEncontradaException {
-        if (repositorioPessoa.buscarPessoa(funcionarioRecebido) == null) {
+    public void atualizarFuncionario(String cpfFuncionario, Funcionario funcionarioAlterado) throws PessoaNaoEncontradaException{
+
+        if (dbFuncionario.buscarFuncionario(cpfFuncionario) == null){
             throw new PessoaNaoEncontradaException();
         } else {
-            repositorioPessoa.removerFuncionario(funcionarioRecebido);
+            dbFuncionario.atualizarFuncionario(cpfFuncionario, funcionarioAlterado);
         }
     }
+
+
+    public void removerFuncionario(Funcionario funcionarioRecebido) throws PessoaNaoEncontradaException {
+        if (dbFuncionario.buscarFuncionario(funcionarioRecebido) == null) {
+            throw new PessoaNaoEncontradaException();
+        } else {
+            dbFuncionario.removerFuncionario(funcionarioRecebido);
+        }
+    }
+
+////////////////////////////////////////////FALTA MUDAR//////////////////////////////////////////////////////////////////
 
     //Metodo especifico para cliente
     public void adicionarAvaliacao(String cpfCliente, Avaliacao avaliacao) throws PessoaNaoEncontradaException {
@@ -106,15 +124,18 @@ public class NegocioPessoa {
             throw new PessoaNaoEncontradaException();
         }
     }
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public Pessoa buscaPessoaCpf(String cpf) throws PessoaNaoEncontradaException {
-        if (repositorioPessoa.buscarPessoa(cpf) != null){
-            return repositorioPessoa.buscarPessoa(cpf);
+
+        if (dbFuncionario.buscarFuncionario(cpf) != null){
+            return dbFuncionario.buscarFuncionario(cpf);
+        }else if (dbCliente.buscarCliente(cpf) != null){
+            return dbCliente.buscarCliente(cpf);
         } else {
             throw new PessoaNaoEncontradaException();
         }
     }
-
 
 }
 
