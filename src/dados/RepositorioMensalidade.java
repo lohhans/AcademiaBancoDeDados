@@ -51,6 +51,8 @@ public class RepositorioMensalidade implements IRepositorioMensalidade{
          for(int i = 0; i<quantidadeMeses; i++){
              Mensalidade mensalidade = new Mensalidade(listaDatas.get(i), valor);
              listaMensalidades.add(mensalidade);
+            //AQUI TEMOS QUE COLOCAR UMA CHAVE ESTRANGEIRA PARA CLIENTE EM CADA MENSALIDADE E MATAR O RETORNO
+
          }
 
          return listaMensalidades;
