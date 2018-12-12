@@ -44,7 +44,6 @@ public class DbFuncionario {
 
     }
 
-
     public Funcionario buscarFuncionario(Funcionario funcionario){
 
         Connection conexao = ConnectionFactory.getConnection();
@@ -89,7 +88,7 @@ public class DbFuncionario {
     }
 
     //Metodo de sobrecarga
-    public Funcionario buscarCliente(String cpf){
+    public Funcionario buscarFuncionario(String cpf){
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -160,7 +159,7 @@ public class DbFuncionario {
         return vazio;
     }
 
-    public void atualizarCliente(String cpfFuncionario, Funcionario funcionario){
+    public void atualizarFuncionario(String cpfFuncionario, Funcionario funcionario){
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
