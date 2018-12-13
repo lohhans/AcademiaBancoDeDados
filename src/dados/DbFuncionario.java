@@ -18,11 +18,12 @@ public class DbFuncionario {
                     " numero, rua, bairro, cidade, senha, gerente) VALUES (?, ?, ?, ?, ?, ?," +
                     " ?, ?, ?, ?, ?, ?) ");
 
-//            java.util.Date date = new java.util.Date();
-            java.sql.Date sqlDate = new java.sql.Date(funcionario.getDataDeNascimento().getDate());
+
+
 
             stmt.setString(1, funcionario.getNome());
             stmt.setString(2, funcionario.getSexo());
+            java.sql.Date sqlDate = new java.sql.Date(funcionario.getDataDeNascimento().getDate());
             stmt.setDate(3, sqlDate);
             stmt.setString(4, funcionario.getCpf());
             stmt.setString(5, funcionario.getTelefone());
