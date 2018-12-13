@@ -20,7 +20,8 @@ public class DbCliente {
 
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getSexo());
-            stmt.setDate(3, (Date) cliente.getDataDeNascimento());
+            java.sql.Date sqlDate = new java.sql.Date(cliente.getDataDeNascimento().getDate());
+            stmt.setDate(3, sqlDate);
             stmt.setString(4, cliente.getCpf());
             stmt.setString(5, cliente.getTelefone());
             stmt.setString(6, cliente.getEndereco().getCep());
