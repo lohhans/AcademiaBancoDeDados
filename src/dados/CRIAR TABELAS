@@ -1,0 +1,118 @@
+
+################CLIENTE#########################
+
+create table cliente
+(
+	nome varchar(225) null,
+	sexo varchar(10) null,
+	dataDeNascimento date null,
+	cpf varchar(11) null,
+	telefone varchar(11) null,
+	cep varchar(9) null,
+	numero varchar(5) null,
+	rua varchar(225) null,
+	bairro varchar(100) null,
+	cidade varchar(100) null,
+	nomeEmergencia varchar(225) null,
+	telefoneEmergencia varchar(11) null
+);
+
+create unique index cliente_cpf_uindex
+	on cliente (cpf);
+
+alter table cliente
+	add constraint cliente_pk
+		primary key (cpf);
+
+##################################################
+
+############FUNCIONARIO###########################
+
+create table funcionario
+(
+	nome varchar(225) null,
+	sexo varchar(10) null,
+	dataDeNascimento date null,
+	cpf varchar(11) null,
+	telefone varchar(11) null,
+	cep varchar(9) null,
+	numero varchar(5) null,
+	rua varchar(225) null,
+	bairro varchar(100) null,
+	cidade varchar(100) null,
+	senha varchar(100) null,
+	gerente bool null
+);
+
+create unique index funcionario_cpf_uindex
+	on funcionario (cpf);
+
+alter table funcionario
+	add constraint funcionario_pk
+		primary key (cpf);
+
+####################################################
+
+############MODALIDADE##############################
+
+create table modalidade
+(
+nome varchar(100) null,
+codigoModalidade int null,
+preco double null
+);
+
+create unique index modalidade_codigoModalidade_uindex
+on modalidade (codigoModalidade);
+
+alter table modalidade
+add constraint modalidade_pk
+ primary key (codigoModalidade);
+
+####################################################
+
+
+################MENSALIDADE#########################
+
+create table mensalidade
+(
+codigo int auto_increment,
+cpfCliente varchar(11) null,
+data date null,
+valor double null,
+pago bool null,
+constraint mensalidade_pk
+ primary key (codigo),
+constraint mensalidade_cliente_cpf_fk
+ foreign key (cpfCliente) references cliente (cpf)
+);
+
+
+####################################################
+
+#####################MATRICULA#####################
+##REVISAR
+
+create table matricula
+(
+cpfCliente varchar(11) null,
+modalidade int null,
+mensalidade int null,
+constraint matricula_cliente_cpf_fk
+ foreign key (cpfCliente) references cliente (cpf),
+constraint matricula_mensalidade_codigo_fk
+ foreign key (mensalidade) references mensalidade (codigo),
+constraint matricula_modalidade_codigoModalidade_fk
+ foreign key (modalidade) references modalidade (codigoModalidade)
+);
+
+create unique index matricula_cpfCliente_uindex
+on matricula (cpfCliente);
+
+alter table matricula
+add constraint matricula_pk
+ primary key (cpfCliente);
+
+
+
+
