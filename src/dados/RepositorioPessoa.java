@@ -1,18 +1,18 @@
-package dados;
-
-import dados.interfaces.IRepositorioPessoa;
-import negocios.entidades.Funcionario;
-import negocios.entidades.Pessoa;
-
-import java.util.ArrayList;
-
-public class RepositorioPessoa implements IRepositorioPessoa{
-
-    private ArrayList <Pessoa> listaDePessoas;
-
-    public RepositorioPessoa(){
-        listaDePessoas = new ArrayList<Pessoa>();
-    }
+//package dados;
+//
+//import dados.interfaces.IRepositorioPessoa;
+//import negocios.entidades.Funcionario;
+//import negocios.entidades.Pessoa;
+//
+//import java.util.ArrayList;
+//
+//public class RepositorioPessoa implements IRepositorioPessoa{
+//
+//    private ArrayList <Pessoa> listaDePessoas;
+//
+//    public RepositorioPessoa(){
+//        listaDePessoas = new ArrayList<Pessoa>();
+//    }
 
     //TODO Implemntar o resto pra interface
 
@@ -52,14 +52,14 @@ public class RepositorioPessoa implements IRepositorioPessoa{
 //        int i = listaDePessoas.indexOf(pessoa);
 //        listaDePessoas.set(i, pessoaAlterada);
 //    }
-
-    @Override
-    public void removerFuncionario(Funcionario pessoa) {
-        listaDePessoas.remove(pessoa);
-    }
-
-    @Override
-    public ArrayList<Pessoa> getListaDePessoas() {
-        return listaDePessoas;
-    }
-}
+//
+//    @Override
+//    public void removerFuncionario(Funcionario pessoa) {
+//        listaDePessoas.remove(pessoa);
+//    }
+//
+//    @Override
+//    public ArrayList<Pessoa> getListaDePessoas() {
+//        return listaDePessoas;
+//    }
+//}

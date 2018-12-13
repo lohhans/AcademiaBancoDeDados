@@ -26,7 +26,7 @@ public class Fachada {
 
     private Fachada() {
         this.repositorioMatricula = new RepositorioMatricula();
-        this.repositorioPessoa = new RepositorioPessoa();
+//        this.repositorioPessoa = new RepositorioPessoa();
         this.repositorioMensalidade = new RepositorioMensalidade();
         this.negocioPessoa = new NegocioPessoa(repositorioPessoa);
         this.negocioMatricula = new NegocioMatricula(repositorioMatricula, repositorioPessoa, repositorioMensalidade);

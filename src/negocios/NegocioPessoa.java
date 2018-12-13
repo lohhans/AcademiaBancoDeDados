@@ -14,8 +14,8 @@ import negocios.exception.PessoaNaoEncontradaException;
 public class NegocioPessoa {
 
     private IRepositorioPessoa repositorioPessoa;
-    private DbCliente dbCliente;
-    private DbFuncionario dbFuncionario;
+    private DbCliente dbCliente = new DbCliente();
+    private DbFuncionario dbFuncionario = new DbFuncionario();
 
     public NegocioPessoa(IRepositorioPessoa repositorioPessoa) {
         this.repositorioPessoa = repositorioPessoa;
@@ -47,9 +47,19 @@ public class NegocioPessoa {
 
     public void adicionarFuncionario(Funcionario funcionario){
 
+        System.out.println("oi1");
+        if (dbFuncionario == null){
+            System.out.println("q merda");
+        }
+
         if (dbFuncionario.esvaziou()){
+            System.out.println("oi2");
+
             dbFuncionario.adicionarFuncionario(funcionario);
+            System.out.println("oi3");
+
         } else if (dbFuncionario.buscarFuncionario(funcionario) == null){
+            System.out.println("oi4");
             dbFuncionario.adicionarFuncionario(funcionario);
         } else {
             try {

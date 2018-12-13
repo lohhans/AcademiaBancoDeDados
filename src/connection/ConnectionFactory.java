@@ -6,8 +6,8 @@ import java.sql.*;
 public class ConnectionFactory {
     // JDBC driver name and database URL
 
-    static final String JDBC_DRIVER = "org.connection.jdbc.Driver";
-    static final String DB_URL = "jdbc:connection://localhost/academia";
+    static final String JDBC_DRIVER = "org.mariadb.jdbc.Driver";
+    static final String DB_URL = "jdbc:mariadb://localhost:3306/academia";
 
     //  Database credentials
     static final String USER = "academia";

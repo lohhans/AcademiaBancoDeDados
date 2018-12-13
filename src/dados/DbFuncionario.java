@@ -18,9 +18,12 @@ public class DbFuncionario {
                     " numero, rua, bairro, cidade, senha, gerente) VALUES (?, ?, ?, ?, ?, ?," +
                     " ?, ?, ?, ?, ?, ?) ");
 
+//            java.util.Date date = new java.util.Date();
+            java.sql.Date sqlDate = new java.sql.Date(funcionario.getDataDeNascimento().getDate());
+
             stmt.setString(1, funcionario.getNome());
             stmt.setString(2, funcionario.getSexo());
-            stmt.setDate(3, (Date) funcionario.getDataDeNascimento());
+            stmt.setDate(3, sqlDate);
             stmt.setString(4, funcionario.getCpf());
             stmt.setString(5, funcionario.getTelefone());
             stmt.setString(6, funcionario.getEndereco().getCep());
@@ -55,7 +58,7 @@ public class DbFuncionario {
         try {
             stmt = conexao.prepareStatement("SELECT nome, sexo, dataDeNascimento, cpf, telefone, cep," +
                     " numero, rua, bairro, cidade, cidade, senha, gerente " +
-                    "FROM cliente WHERE cpf ="+funcionario.getCpf());
+                    "FROM funcionario WHERE cpf ="+funcionario.getCpf());
             rs = stmt.executeQuery();
 
             //verifica se a consulta nao esta vazia
@@ -99,11 +102,11 @@ public class DbFuncionario {
         try {
             stmt = conexao.prepareStatement("SELECT nome, sexo, dataDeNascimento, cpf, telefone, cep," +
                     " numero, rua, bairro, cidade, cidade, senha, gerente " +
-                    "FROM cliente WHERE cpf ="+cpf);
+                    "FROM funcionario WHERE cpf ="+cpf);
             rs = stmt.executeQuery();
 
             //verifica se a consulta nao esta vazia
-            if(rs.isBeforeFirst()){
+            if(!rs.isBeforeFirst()){
 
                 endereco.setCep(rs.getString("cep"));
                 endereco.setNumero(rs.getString("numero"));
@@ -132,21 +135,28 @@ public class DbFuncionario {
     }
 
     public boolean esvaziou(){
+        System.out.println("priquito\n");
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
         boolean vazio = false;
+        System.out.println("priquito2\n");
 
         try {
             stmt = conexao.prepareStatement("SELECT * FROM funcionario");
             rs = stmt.executeQuery();
+            System.out.println("priquito3\n");
 
             //verifica se a consulta nao esta vazia
             if(rs.isBeforeFirst()) {
+                System.out.println("priquito4\n");
+
                 vazio = true;
             }else{
+                System.out.println("priquito5\n");
+
                 vazio = false;
             }
         } catch (SQLException e) {
