@@ -1,5 +1,6 @@
 package negocios;
 
+import dados.DbAvaliacao;
 import dados.DbCliente;
 import dados.DbFuncionario;
 import dados.interfaces.IRepositorioPessoa;
@@ -11,11 +12,14 @@ import negocios.exception.AvaliacaoNaoEncontradaException;
 import negocios.exception.PessoaJaCadastradaException;
 import negocios.exception.PessoaNaoEncontradaException;
 
+import java.util.ArrayList;
+
 public class NegocioPessoa {
 
     private IRepositorioPessoa repositorioPessoa;
     private DbCliente dbCliente = new DbCliente();
     private DbFuncionario dbFuncionario = new DbFuncionario();
+    private DbAvaliacao dbAvaliacao = new DbAvaliacao();
 
     public NegocioPessoa(IRepositorioPessoa repositorioPessoa) {
         this.repositorioPessoa = repositorioPessoa;
@@ -47,19 +51,14 @@ public class NegocioPessoa {
 
     public void adicionarFuncionario(Funcionario funcionario){
 
-        System.out.println("oi1");
         if (dbFuncionario == null){
-            System.out.println("q merda");
         }
 
         if (dbFuncionario.esvaziou()){
-            System.out.println("oi2");
 
             dbFuncionario.adicionarFuncionario(funcionario);
-            System.out.println("oi3");
 
         } else if (dbFuncionario.buscarFuncionario(funcionario) == null){
-            System.out.println("oi4");
             dbFuncionario.adicionarFuncionario(funcionario);
         } else {
             try {
@@ -105,26 +104,32 @@ public class NegocioPessoa {
         }
     }
 
-////////////////////////////////////////////FALTA MUDAR//////////////////////////////////////////////////////////////////
-
     //Metodo especifico para cliente
     public void adicionarAvaliacao(String cpfCliente, Avaliacao avaliacao) throws PessoaNaoEncontradaException {
-        Pessoa pessoa = repositorioPessoa.buscarPessoa(cpfCliente);
-        if (pessoa != null){
-            Cliente c = (Cliente) pessoa;
-            avaliacao.setNumeroDaAvaliacao((c.getListaDeAvaliacoes().size())+1);
-            c.getListaDeAvaliacoes().add(avaliacao);
+        Cliente cliente = dbCliente.buscarCliente(cpfCliente);
+        if (cliente != null){
+            avaliacao.setNumeroDaAvaliacao((dbAvaliacao.getListaDeAvaliacoes(cpfCliente).size())+1);
+            cliente.getListaDeAvaliacoes().add(avaliacao);
         } else {
             throw new PessoaNaoEncontradaException();
         }
     }
 
+
     //Metodo especifico para cliente
     public String buscarAvaliacao(String cpfCliente, int numeroDaAvaliacao) throws PessoaNaoEncontradaException, AvaliacaoNaoEncontradaException {
-        Pessoa pessoa = repositorioPessoa.buscarPessoa(cpfCliente);
-        if (pessoa != null) {
-            Cliente c = (Cliente) pessoa;
-            Avaliacao avaliacao = c.buscarAvaliacao(numeroDaAvaliacao);
+        Cliente cliente = dbCliente.buscarCliente(cpfCliente);
+        if (cliente != null) {
+
+            ArrayList<Avaliacao> avaliacoes = dbAvaliacao.getListaDeAvaliacoes(cpfCliente);
+            Avaliacao avaliacao = null;
+
+            for (int i = 0; i < avaliacoes.size(); i++) {
+                if (avaliacoes.get(i).getNumeroDaAvaliacao() == numeroDaAvaliacao) {
+                    avaliacao = avaliacoes.get(i);
+                }
+            }
+
             if (avaliacao != null){
                 return avaliacao.toString();
             } else {
@@ -134,8 +139,7 @@ public class NegocioPessoa {
             throw new PessoaNaoEncontradaException();
         }
     }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    
     public Pessoa buscaPessoaCpf(String cpf) throws PessoaNaoEncontradaException {
 
         if (dbFuncionario.buscarFuncionario(cpf) != null){
