@@ -1,2 +1,5 @@
-# Ignore bundler config.
+# Ignore outputs do projeto
 out/
+
+# Ignore workspace do projeto
+.idea/
