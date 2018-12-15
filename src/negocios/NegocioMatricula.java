@@ -81,7 +81,7 @@ public class NegocioMatricula {
             double descontoTotal = descontoPorEndereco + descontoPorQuantiaMeses;
             double precoFinal = precoMatricula - descontoTotal;
 
-            ArrayList<Mensalidade> listaMensalidades = repositorioMensalidade.criarMensalidades(quantidadeMeses, precoFinal);
+            ArrayList<Mensalidade> listaMensalidades = repositorioMensalidade.criarMensalidades(cliente, quantidadeMeses, precoFinal);
 
             cliente.setMatriculado(true);
 

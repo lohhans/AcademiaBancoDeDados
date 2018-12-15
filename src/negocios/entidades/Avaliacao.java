@@ -24,6 +24,10 @@ public class Avaliacao {
         this.data = new Date();
     }
 
+    public void setData(Date data) {
+        this.data = data;
+    }
+
     public int getNumeroDaAvaliacao() {
         return numeroDaAvaliacao;
     }
