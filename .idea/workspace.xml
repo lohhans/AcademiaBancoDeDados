@@ -2,12 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="707ea96e-1e22-4cc4-817b-70cfcd236255" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/df0d3fc0-f2f5-4bdc-9de2-471d737dd351.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/df0d3fc0-f2f5-4bdc-9de2-471d737dd351.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/connection/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/connection/ConnectionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dados/DbFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dados/DbFuncionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dados/DbCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dados/DbCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dados/DbMensalidade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dados/DbMensalidade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dados/RepositorioMensalidade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dados/RepositorioMensalidade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dados/RepositorioPessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dados/RepositorioPessoa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fachada/Fachada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fachada/Fachada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dados/interfaces/IRepositorioMensalidade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dados/interfaces/IRepositorioMensalidade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/negocios/NegocioMatricula.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/negocios/NegocioMatricula.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/negocios/NegocioPessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/negocios/NegocioPessoa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/negocios/entidades/Avaliacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/negocios/entidades/Avaliacao.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,7 +52,7 @@
         <item name="academia" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="academia: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="funcionario: table" type="285a2a93:MysqlImplModel$Table" />
+        <item name="cliente: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -56,22 +60,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/negocios/NegocioPessoa.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dados/DbFuncionario.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="108" column="16" selection-start-line="108" selection-start-column="16" selection-end-line="108" selection-end-column="16" />
+            <state relative-caret-position="2955">
+              <caret line="201" column="61" selection-start-line="201" selection-start-column="61" selection-end-line="201" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -80,37 +72,46 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/dados/DbCliente.java">
+        <entry file="file://$PROJECT_DIR$/src/dados/DbMensalidade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="111" column="59" lean-forward="true" selection-start-line="111" selection-start-column="59" selection-end-line="111" selection-end-column="59" />
+            <state relative-caret-position="718">
+              <caret line="85" column="9" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dados/RepositorioPessoa.java">
+        <entry file="file://$PROJECT_DIR$/src/dados/RepositorioMensalidade.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/dados/interfaces/IRepositorioMensalidade.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/negocios/entidades/Mensalidade.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dados/RepositorioModalidade.java">
+        <entry file="file://$PROJECT_DIR$/src/dados/interfaces/IRepositorioPessoa.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GUI/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="53" column="58" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="58" />
+            <state relative-caret-position="255">
+              <caret line="20" column="39" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -119,19 +120,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fachada/Fachada.java">
+        <entry file="file://$PROJECT_DIR$/src/dados/DbCliente.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+            <state relative-caret-position="270">
+              <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="24" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/connection/ConnectionFactory.java">
+        <entry file="file://$PROJECT_DIR$/src/negocios/NegocioPessoa.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="9" column="72" selection-start-line="9" selection-start-column="72" selection-end-line="9" selection-end-column="72" />
+            <state relative-caret-position="1455">
+              <caret line="111" column="44" selection-start-line="111" selection-start-column="44" selection-end-line="111" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -139,8 +143,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/negocios/NegocioMatricula.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="41" column="56" selection-start-line="41" selection-start-column="56" selection-end-line="41" selection-end-column="56" />
+            <state relative-caret-position="1140">
+              <caret line="84" selection-start-line="84" selection-end-line="84" />
             </state>
           </provider>
         </entry>
@@ -158,6 +162,7 @@
     <findStrings>
       <find>bus</find>
       <find>cliente</find>
+      <find>getlista</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -177,20 +182,24 @@
         <option value="$PROJECT_DIR$/src/dados/BdPessoa.java" />
         <option value="$PROJECT_DIR$/src/negocios/NegocioModalidade.java" />
         <option value="$PROJECT_DIR$/src/dados/DbModalidade.java" />
-        <option value="$PROJECT_DIR$/src/dados/RepositorioMensalidade.java" />
-        <option value="$PROJECT_DIR$/src/dados/DbMensalidade.java" />
         <option value="$PROJECT_DIR$/src/negocios/entidades/Pessoa.java" />
-        <option value="$PROJECT_DIR$/src/dados/DbCliente.java" />
-        <option value="$PROJECT_DIR$/src/dados/RepositorioPessoa.java" />
         <option value="$PROJECT_DIR$/src/fachada/Fachada.java" />
         <option value="$PROJECT_DIR$/src/connection/ConnectionFactory.java" />
-        <option value="$PROJECT_DIR$/src/negocios/NegocioPessoa.java" />
         <option value="$PROJECT_DIR$/src/dados/DbFuncionario.java" />
+        <option value="$PROJECT_DIR$/src/dados/DbCliente.java" />
+        <option value="$PROJECT_DIR$/src/dados/RepositorioPessoa.java" />
+        <option value="$PROJECT_DIR$/src/negocios/entidades/Avaliacao.java" />
+        <option value="$PROJECT_DIR$/src/negocios/NegocioPessoa.java" />
+        <option value="$PROJECT_DIR$/src/dados/DbAvaliacao.java" />
+        <option value="$PROJECT_DIR$/src/negocios/NegocioMatricula.java" />
+        <option value="$PROJECT_DIR$/src/dados/interfaces/IRepositorioMensalidade.java" />
+        <option value="$PROJECT_DIR$/src/dados/RepositorioMensalidade.java" />
+        <option value="$PROJECT_DIR$/src/dados/DbMensalidade.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="-1" />
+    <option name="x" value="961" />
     <option name="width" value="959" />
     <option name="height" value="1044" />
   </component>
@@ -202,8 +211,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -211,66 +218,19 @@
               <item name="AcademiaBancoDeDados" type="b2602c69:ProjectViewProjectNode" />
               <item name="AcademiaBancoDeDados" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="AcademiaBancoDeDados" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AcademiaBancoDeDados" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AcademiaBancoDeDados" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AcademiaBancoDeDados" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="connection" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AcademiaBancoDeDados" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AcademiaBancoDeDados" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dados" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AcademiaBancoDeDados" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AcademiaBancoDeDados" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dados" type="462c0819:PsiDirectoryNode" />
-              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AcademiaBancoDeDados" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AcademiaBancoDeDados" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="fachada" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AcademiaBancoDeDados" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AcademiaBancoDeDados" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="GUI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AcademiaBancoDeDados" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AcademiaBancoDeDados" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="negocios" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AcademiaBancoDeDados" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AcademiaBancoDeDados" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="negocios" type="462c0819:PsiDirectoryNode" />
-              <item name="entidades" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mariadb" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544679964131" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544825590815" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/mariadb-java-client-2.3.0.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -331,37 +291,39 @@
       <workItem from="1544621724960" duration="21101000" />
       <workItem from="1544653214568" duration="1990000" />
       <workItem from="1544655965047" duration="9674000" />
+      <workItem from="1544809960501" duration="14600000" />
+      <workItem from="1544830096664" duration="598000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50608000" />
+    <option name="totallyTimeSpent" value="65806000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-1" width="1366" height="741" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="-1" width="1920" height="1045" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19318181" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.157754" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.51655626" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28363046" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32901135" />
-      <window_info anchor="bottom" id="Duplicate detector" order="13" weight="0.3289183" />
+      <window_info anchor="bottom" id="SQL Generator" order="0" weight="0.3289183" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.51545256" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.28363046" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32901135" />
+      <window_info anchor="bottom" id="Duplicate detector" order="14" weight="0.3289183" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -370,39 +332,8 @@
       <window_info anchor="right" id="Maven" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Database" order="8" weight="0.3287879" />
+      <window_info anchor="right" id="Database" order="8" weight="0.32834226" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1406417" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Designer" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32901135" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32901135" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32901135" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Maven" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Database" order="8" weight="0.32941177" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -419,8 +350,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/fxml/GuiAtualizarCliente.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -446,13 +377,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/negocios/entidades/Cliente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="14" column="164" selection-start-line="14" selection-start-column="116" selection-end-line="14" selection-end-column="164" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/negocios/entidades/Modalidade.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -467,24 +391,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/negocios/entidades/Mensalidade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dados/RepositorioMatricula.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dados/RepositorioMensalidade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="45" column="97" lean-forward="true" selection-start-line="45" selection-start-column="97" selection-end-line="45" selection-end-column="97" />
         </state>
       </provider>
     </entry>
@@ -538,7 +448,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dados/DbMensalidade.java" />
     <entry file="file://$PROJECT_DIR$/src/negocios/NegocioMensalidade.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -546,37 +455,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/negocios/NegocioMatricula.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="41" column="56" selection-start-line="41" selection-start-column="56" selection-end-line="41" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dados/interfaces/IRepositorioPessoa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/df0d3fc0-f2f5-4bdc-9de2-471d737dd351/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/df0d3fc0-f2f5-4bdc-9de2-471d737dd351/console.sql" />
     <entry file="file://$PROJECT_DIR$/src/dados/interfaces/IRepositorioMatricula.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/connection/ConnectionFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="9" column="72" selection-start-line="9" selection-start-column="72" selection-end-line="9" selection-end-column="72" />
         </state>
       </provider>
     </entry>
@@ -596,35 +479,91 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dados/RepositorioPessoa.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/negocios/NegocioPessoa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="915">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="53" column="58" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="58" />
+        <state relative-caret-position="533">
+          <caret line="49" column="58" selection-start-line="49" selection-start-column="58" selection-end-line="49" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/negocios/entidades/Cliente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="53" column="13" lean-forward="true" selection-start-line="50" selection-start-column="8" selection-end-line="53" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dados/DbAvaliacao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="65" lean-forward="true" selection-start-line="36" selection-start-column="65" selection-end-line="36" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/negocios/entidades/Avaliacao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1500">
+          <caret line="150" column="60" lean-forward="true" selection-start-line="150" selection-start-column="60" selection-end-line="150" selection-end-column="60" />
+          <folding>
+            <element signature="e#1241#1242#0" expanded="true" />
+            <element signature="e#1273#1274#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/connection/ConnectionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="72" selection-start-line="9" selection-start-column="72" selection-end-line="9" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/dados/DbFuncionario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="108" column="16" selection-start-line="108" selection-start-column="16" selection-end-line="108" selection-end-column="16" />
+        <state relative-caret-position="2955">
+          <caret line="201" column="61" selection-start-line="201" selection-start-column="61" selection-end-line="201" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dados/RepositorioMensalidade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dados/interfaces/IRepositorioMensalidade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/negocios/entidades/Mensalidade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dados/interfaces/IRepositorioPessoa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="39" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -633,8 +572,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dados/DbCliente.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="111" column="59" lean-forward="true" selection-start-line="111" selection-start-column="59" selection-end-line="111" selection-end-column="59" />
+        <state relative-caret-position="270">
+          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="24" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/negocios/NegocioPessoa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1455">
+          <caret line="111" column="44" selection-start-line="111" selection-start-column="44" selection-end-line="111" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/negocios/NegocioMatricula.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dados/DbMensalidade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="718">
+          <caret line="85" column="9" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
         </state>
       </provider>
     </entry>

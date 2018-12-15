@@ -109,7 +109,8 @@ public class NegocioPessoa {
         Cliente cliente = dbCliente.buscarCliente(cpfCliente);
         if (cliente != null){
             avaliacao.setNumeroDaAvaliacao((dbAvaliacao.getListaDeAvaliacoes(cpfCliente).size())+1);
-            cliente.getListaDeAvaliacoes().add(avaliacao);
+            dbAvaliacao.adicionar(cpfCliente, avaliacao);
+
         } else {
             throw new PessoaNaoEncontradaException();
         }
@@ -139,7 +140,7 @@ public class NegocioPessoa {
             throw new PessoaNaoEncontradaException();
         }
     }
-    
+
     public Pessoa buscaPessoaCpf(String cpf) throws PessoaNaoEncontradaException {
 
         if (dbFuncionario.buscarFuncionario(cpf) != null){

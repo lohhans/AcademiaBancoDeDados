@@ -5,6 +5,7 @@ import negocios.entidades.Cliente;
 import negocios.entidades.Endereco;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DbCliente {
 
@@ -196,6 +197,45 @@ public class DbCliente {
 
     }
 
+    public ArrayList<Cliente> getListaDePessoas() {
+
+        Connection conexao = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        Cliente clienteBanco= null;
+        Endereco endereco = null;
+        ArrayList <Cliente> listaDePessoas = null;
+
+        try {
+            stmt = conexao.prepareStatement("SELECT * FROM cliente");
+            rs = stmt.executeQuery();
+
+            while (rs.next()){
+
+                endereco.setCep(rs.getString("cep"));
+                endereco.setNumero(rs.getString("numero"));
+                endereco.setRua(rs.getString("rua"));
+                endereco.setBairro(rs.getString("bairro"));
+                endereco.setCidade(rs.getString("cidade"));
+
+                clienteBanco.setNome(rs.getString("nome"));
+                clienteBanco.setSexo(rs.getString("sexo"));
+                clienteBanco.setDataDeNascimento(rs.getDate("dataDeNacimento"));
+                clienteBanco.setEndereco(endereco);
+                clienteBanco.setNomeEmergencia(rs.getString("nomeEmergencia"));
+                clienteBanco.setTelefoneEmergencia(rs.getString("telefoneEmergencia"));
+
+                listaDePessoas.add(clienteBanco);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return  listaDePessoas;
+
+    }
 
 
 }

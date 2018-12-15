@@ -1,6 +1,7 @@
 package dados;
 
 import dados.interfaces.IRepositorioMensalidade;
+import negocios.entidades.Cliente;
 import negocios.entidades.Mensalidade;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -8,6 +9,22 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class RepositorioMensalidade implements IRepositorioMensalidade{
+
+    @Override
+    public ArrayList criarMensalidades(Cliente cliente, int quantidadeMeses, double valor) throws ParseException {
+        ArrayList<Mensalidade> listaMensalidades = new ArrayList<>();
+        //utilizando o metodo criarDatas
+        ArrayList<Date> listaDatas = criarDatas(quantidadeMeses);
+        //adicionando a data especifica a determinada mensalidade
+        for(int i = 0; i<quantidadeMeses; i++){
+            Mensalidade mensalidade = new Mensalidade(listaDatas.get(i), valor);
+            listaMensalidades.add(mensalidade);
+            //AQUI TEMOS QUE COLOCAR UMA CHAVE ESTRANGEIRA PARA CLIENTE EM CADA MENSALIDADE E MATAR O RETORNO
+
+        }
+
+        return listaMensalidades;
+    }
 
     @Override
     public ArrayList criarDatas(int quantidadeMeses) throws ParseException{
@@ -40,22 +57,6 @@ public class RepositorioMensalidade implements IRepositorioMensalidade{
         }
 
         return listaDatas;
-    }
-
-    @Override
-    public ArrayList criarMensalidades(int quantidadeMeses, double valor) throws ParseException {
-         ArrayList<Mensalidade> listaMensalidades = new ArrayList<>();
-         //utilizando o metodo criarDatas
-         ArrayList<Date> listaDatas = criarDatas(quantidadeMeses);
-         //adicionando a data especifica a determinada mensalidade
-         for(int i = 0; i<quantidadeMeses; i++){
-             Mensalidade mensalidade = new Mensalidade(listaDatas.get(i), valor);
-             listaMensalidades.add(mensalidade);
-            //AQUI TEMOS QUE COLOCAR UMA CHAVE ESTRANGEIRA PARA CLIENTE EM CADA MENSALIDADE E MATAR O RETORNO
-
-         }
-
-         return listaMensalidades;
     }
 
 }
