@@ -1,15 +1,18 @@
 package negocios;
 
+import dados.DbMatricula;
+import dados.DbMensalidade;
 import dados.interfaces.IRepositorioMatricula;
 import negocios.entidades.Matricula;
+import negocios.entidades.Mensalidade;
 import negocios.exception.MensalidadesPagasException;
 
 public class NegocioMensalidade {
 
-    private IRepositorioMatricula repositorioMatricula;
+    private DbMatricula dbMatricula;
 
-    public NegocioMensalidade(IRepositorioMatricula repositorioMatricula) {
-        this.repositorioMatricula = repositorioMatricula;
+    public NegocioMensalidade(DbMatricula dbMatricula) {
+        this.dbMatricula= dbMatricula;
     }
 
     public boolean conferirMensalidadeTotalmentePaga(Matricula matricula){
@@ -28,6 +31,9 @@ public class NegocioMensalidade {
             for (int i = 0; i < matricula.getListaMensalidadeDoCliente().size(); i++) {
                 if (!matricula.getListaMensalidadeDoCliente().get(i).isPago()) {
                     matricula.getListaMensalidadeDoCliente().get(i).setPago(true);
+                    Mensalidade mensalidade = matricula.getListaMensalidadeDoCliente().get(i);
+                    dbMatricula.pagarMensalidade(matricula.getCliente().getCpf(), mensalidade);
+
                     break;
                 }
             }
@@ -38,19 +44,9 @@ public class NegocioMensalidade {
     }
 
     public String conferirPagamentoDosClientes() throws MensalidadesPagasException {
-        String nomeCpfDosClientes = "";
-        //varre lista de matricula
-        for (int i = 0; i < repositorioMatricula.getListaDeMatriculas().size(); i++) {
-            //varre lista de mensalidades dentro de cada matricula
-            for (int j = 0; j < repositorioMatricula.getListaDeMatriculas().get(i).getListaMensalidadeDoCliente().size(); j++) {
-                //se ouver mensalidades a pagar concatena string com nome e CPF
-                if (!repositorioMatricula.getListaDeMatriculas().get(i).getListaMensalidadeDoCliente().get(j).isPago()) {
-                    nomeCpfDosClientes += repositorioMatricula.getListaDeMatriculas().get(i).getCliente().getNome() + ", de cpf: " + repositorioMatricula.getListaDeMatriculas().get(i).getCliente().getCpf() + "\n";
-                    break;
-                }
-            }
-        }
-        if(!nomeCpfDosClientes.equals("")){
+        String nomeCpfDosClientes = null;
+        nomeCpfDosClientes = dbMatricula.conferirPagamentos();
+        if(!nomeCpfDosClientes.equals(null)){
             return nomeCpfDosClientes;
         } else {
             throw new MensalidadesPagasException();
