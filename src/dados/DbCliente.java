@@ -16,7 +16,7 @@ public class DbCliente {
 
         try {
             stmt = conexao.prepareStatement("INSERT INTO cliente (nome, sexo, dataDeNascimento, cpf, telefone, cep," +
-                    " numero, rua, bairro, cidade, nomeEmergencia, telefoneEmergencia) VALUES (?, ?, ?, ?, ?, ?," +
+                    " numero, rua, bairro, cidade, nomeEmergencia, telefoneEmergencia, matriculado) VALUES (?, ?, ?, ?, ?, ?, ?," +
                     " ?, ?, ?, ?, ?, ?) ");
 
             stmt.setString(1, cliente.getNome());
@@ -32,6 +32,7 @@ public class DbCliente {
             stmt.setString(10, cliente.getEndereco().getCidade());
             stmt.setString(11, cliente.getNomeEmergencia());
             stmt.setString(12, cliente.getTelefoneEmergencia());
+            stmt.setBoolean(13, cliente.isMatriculado());
 
             stmt.executeUpdate();
 
@@ -56,7 +57,7 @@ public class DbCliente {
         Endereco endereco = null;
         try {
             stmt = conexao.prepareStatement("SELECT nome, sexo, dataDeNascimento, cpf, telefone, cep," +
-                                                 " numero, rua, bairro, cidade, nomeEmergencia, telefoneEmergencia " +
+                                                 " numero, rua, bairro, cidade, nomeEmergencia, telefoneEmergencia, matriculado " +
                                                  "FROM cliente WHERE cpf ="+cliente.getCpf());
             rs = stmt.executeQuery();
 
@@ -75,6 +76,7 @@ public class DbCliente {
                 clienteBanco.setEndereco(endereco);
                 clienteBanco.setNomeEmergencia(rs.getString("nomeEmergencia"));
                 clienteBanco.setTelefoneEmergencia(rs.getString("telefoneEmergencia"));
+                clienteBanco.setMatriculado(rs.getBoolean("matriculado"));
 
             }
 
@@ -100,7 +102,7 @@ public class DbCliente {
         Endereco endereco = null;
         try {
             stmt = conexao.prepareStatement("SELECT nome, sexo, dataDeNascimento, cpf, telefone, cep," +
-                    " numero, rua, bairro, cidade, nomeEmergencia, telefoneEmergencia " +
+                    " numero, rua, bairro, cidade, nomeEmergencia, telefoneEmergencia, matriculado " +
                     "FROM cliente WHERE cpf ="+cpf);
             rs = stmt.executeQuery();
 
@@ -119,6 +121,7 @@ public class DbCliente {
                 clienteBanco.setEndereco(endereco);
                 clienteBanco.setNomeEmergencia(rs.getString("nomeEmergencia"));
                 clienteBanco.setTelefoneEmergencia(rs.getString("telefoneEmergencia"));
+                clienteBanco.setMatriculado(rs.getBoolean("matriculado"));
 
             }
 
@@ -169,7 +172,7 @@ public class DbCliente {
         try {
             stmt = conexao.prepareStatement("UPDATE cliente SET nome = ?, sexo = ?, dataDeNascimento = ?," +
                     " cpf = ?, telefone = ?, cep = ?, numero = ?, rua = ?, bairro = ?, cidade = ?, nomeEmergencia = ?," +
-                    " telefoneEmergencia = ? WHERE cpf =" + cpfCliente);
+                    " telefoneEmergencia = ?, matriculado = ? WHERE cpf =" + cpfCliente);
 
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getSexo());
@@ -183,6 +186,7 @@ public class DbCliente {
             stmt.setString(10, cliente.getEndereco().getCidade());
             stmt.setString(11, cliente.getNomeEmergencia());
             stmt.setString(12, cliente.getTelefoneEmergencia());
+            stmt.setBoolean(13, cliente.isMatriculado());
 
             stmt.executeUpdate();
 
@@ -225,6 +229,7 @@ public class DbCliente {
                 clienteBanco.setEndereco(endereco);
                 clienteBanco.setNomeEmergencia(rs.getString("nomeEmergencia"));
                 clienteBanco.setTelefoneEmergencia(rs.getString("telefoneEmergencia"));
+                clienteBanco.setMatriculado(rs.getBoolean("matriculado"));
 
                 listaDePessoas.add(clienteBanco);
 
