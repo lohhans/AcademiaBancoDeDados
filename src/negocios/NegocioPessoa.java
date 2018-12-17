@@ -16,13 +16,13 @@ import java.util.ArrayList;
 
 public class NegocioPessoa {
 
-    private IRepositorioPessoa repositorioPessoa;
     private DbCliente dbCliente = new DbCliente();
     private DbFuncionario dbFuncionario = new DbFuncionario();
     private DbAvaliacao dbAvaliacao = new DbAvaliacao();
 
-    public NegocioPessoa(IRepositorioPessoa repositorioPessoa) {
-        this.repositorioPessoa = repositorioPessoa;
+    public NegocioPessoa(DbCliente dbCliente, DbFuncionario dbFuncionario ) {
+        this.dbCliente = dbCliente;
+        this.dbFuncionario = dbFuncionario;
     }
 
     public void adicionarPessoa(Pessoa novaPessoa) throws PessoaJaCadastradaException {

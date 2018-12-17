@@ -1,5 +1,8 @@
 package negocios;
 
+import dados.DbCliente;
+import dados.DbMatricula;
+import dados.DbMensalidade;
 import dados.interfaces.IRepositorioMatricula;
 import dados.interfaces.IRepositorioMensalidade;
 import dados.interfaces.IRepositorioPessoa;
@@ -12,14 +15,14 @@ import java.util.ArrayList;
 
 public class NegocioMatricula {
 
-    private IRepositorioMatricula repositorioMatricula;
-    private IRepositorioPessoa repositorioPessoa;
-    private IRepositorioMensalidade repositorioMensalidade;
+    private DbMatricula dbMatricula;
+    private DbCliente dbCliente;
+    private DbMensalidade dbMensalidade;
 
-    public NegocioMatricula(IRepositorioMatricula repositorioMatricula, IRepositorioPessoa repositorioPessoa, IRepositorioMensalidade repositorioMensalidade) {
-        this.repositorioMatricula = repositorioMatricula;
-        this.repositorioPessoa = repositorioPessoa;
-        this.repositorioMensalidade = repositorioMensalidade;
+    public NegocioMatricula(DbMatricula dbMatricula, DbCliente dbCliente,DbMensalidade dbMensalidade) {
+        this.dbMatricula = dbMatricula;
+        this.dbCliente = dbCliente;
+        this.dbMensalidade = dbMensalidade;
     }
 
     private double gerarPrecoDaMatricula(ArrayList<Modalidade> modalidadesDoCliente) throws ArrayListVazioException{ //trt modalidades in
@@ -37,9 +40,9 @@ public class NegocioMatricula {
     private double descontoEndereco(Cliente cliente, double precoDaMatriculaSemDesconto){
         double descontoEndereco = 0;
         //varre lista de pessoas buscando endereço igual para dar desconto de 5%
-        for (int i = 0; i < repositorioPessoa.getListaDePessoas().size(); i++) {
-            if (cliente.getEndereco().equals(repositorioPessoa.getListaDePessoas().get(i).getEndereco())) {
-                Cliente c = (Cliente) repositorioPessoa.getListaDePessoas().get(i);
+        for (int i = 0; i < dbCliente.getListaDePessoas().size(); i++) {
+            if (cliente.getEndereco().equals(dbCliente.getListaDePessoas().get(i).getEndereco())) {
+                Cliente c = dbCliente.getListaDePessoas().get(i);
                 if(c.isMatriculado()) {
                     descontoEndereco = precoDaMatriculaSemDesconto * 0.05;
                 }
@@ -72,7 +75,7 @@ public class NegocioMatricula {
 
     public void matricular(Cliente cliente, int quantidadeMeses, ArrayList<Modalidade> modalidadesDoCliente) throws ArrayListVazioException, QuantidadeDeMesesIndisponivelException, ParseException, PessoaNaoEncontradaException, ClienteJaMatriculadoException {
         //Compara se o cliente existe
-        if (repositorioPessoa.buscarPessoa(cliente.getCpf()) != null && !cliente.isMatriculado()) {
+        if (dbCliente.buscarCliente(cliente.getCpf()) != null && !cliente.isMatriculado()) {
             double precoMatricula = gerarPrecoDaMatricula(modalidadesDoCliente);
             double descontoPorEndereco = descontoEndereco(cliente, precoMatricula);
             double descontoPorQuantiaMeses = descontoQuantidadeMeses(quantidadeMeses, precoMatricula);
@@ -81,14 +84,14 @@ public class NegocioMatricula {
             double descontoTotal = descontoPorEndereco + descontoPorQuantiaMeses;
             double precoFinal = precoMatricula - descontoTotal;
 
-            ArrayList<Mensalidade> listaMensalidades = repositorioMensalidade.criarMensalidades(cliente, quantidadeMeses, precoFinal);
+            ArrayList<Mensalidade> listaMensalidades = dbMensalidade.criarMensalidades(cliente, quantidadeMeses, precoFinal);
 
             cliente.setMatriculado(true);
 
             Matricula matricula = new Matricula(cliente, modalidadesDoCliente, listaMensalidades);
 
             //Usou metodo do Repositorio e criou
-            repositorioMatricula.matricular(matricula);
+            dbMatricula.matricular(matricula);
 
         } else if (cliente.isMatriculado()){
             throw new ClienteJaMatriculadoException();
@@ -99,23 +102,26 @@ public class NegocioMatricula {
 
     public void removerMatriculaPaga(Cliente cliente) throws PessoaNaoEncontradaException {
         //Compara se o cliente existe
-        if(repositorioPessoa.buscarPessoa(cliente) != null) {
-            repositorioMatricula.removerMatricula(repositorioMatricula.buscarMatricula(cliente));
+        if(dbCliente.buscarCliente(cliente) != null) {
+            dbMatricula.removerMatricula(dbMatricula.buscarMatricula(cliente));
             cliente.setMatriculado(false);
+            dbCliente.atualizarCliente(cliente.getCpf(), cliente);
         } else {
             throw new PessoaNaoEncontradaException();
         }
     }
 
     public double removerMatriculaEmAberto(Cliente cliente) throws PessoaNaoEncontradaException, ImpossivelRemoverMatriculaDeUmMesException {
-        System.out.println(repositorioMatricula.buscarMensalidade(cliente).get(1).getValor());
+        System.out.println(dbMatricula.buscarMensalidade(cliente).get(1).getValor());
         double multa;
         //Compara se o cliente existe
-        if(repositorioPessoa.buscarPessoa(cliente) != null) {
-            multa = repositorioMatricula.buscarMensalidade(cliente).get(1).getValor()*3;
-            repositorioMatricula.removerMatricula(repositorioMatricula.buscarMatricula(cliente));
+        if(dbCliente.buscarCliente(cliente) != null) {
+            multa = dbMatricula.buscarMensalidade(cliente).get(1).getValor()*3;
+            dbMatricula.removerMatricula(dbMatricula.buscarMatricula(cliente));
             cliente.setMatriculado(false);
-        } else if (repositorioMatricula.buscarMensalidade(cliente).size() == 1){ //Confere se o plano eh maior que 1 mes
+            dbCliente.atualizarCliente(cliente.getCpf(), cliente);
+
+        } else if (dbMatricula.buscarMensalidade(cliente).size() == 1){ //Confere se o plano eh maior que 1 mes
             throw new ImpossivelRemoverMatriculaDeUmMesException();
         } else {
             throw new PessoaNaoEncontradaException();
@@ -125,7 +131,7 @@ public class NegocioMatricula {
 
     public Matricula buscarMatricula(Cliente cliente) throws ClienteNaoMatriculadoException{
         if (cliente.isMatriculado()) {
-            return repositorioMatricula.buscarMatricula(cliente);
+            return dbMatricula.buscarMatricula(cliente);
         } else {
             throw new ClienteNaoMatriculadoException();
         }

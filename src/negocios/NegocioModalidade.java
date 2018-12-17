@@ -8,11 +8,10 @@ import negocios.exception.ModalidadeNaoEncontradaException;
 
 public class NegocioModalidade {
 
-    private IRepositorioModalidade repositorioModalidade;
     private DbModalidade dbModalidade;
 
-    public NegocioModalidade(IRepositorioModalidade repositorioModalidade){
-        this.repositorioModalidade = repositorioModalidade;
+    public NegocioModalidade(DbModalidade dbModalidade){
+        this.dbModalidade = dbModalidade;
     }
 
     public String printarModalidades() {
