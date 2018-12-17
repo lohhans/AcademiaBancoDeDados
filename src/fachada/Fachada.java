@@ -15,9 +15,10 @@ import java.util.Date;
 public class Fachada {
 
     private static Fachada fachada;
-    private IRepositorioMatricula repositorioMatricula;
-    private IRepositorioPessoa repositorioPessoa;
-    private IRepositorioMensalidade repositorioMensalidade;
+    private DbMatricula dbMatricula;
+    private DbCliente dbCliente;
+    private DbFuncionario dbFuncionario;
+    private DbMensalidade dbMensalidade;
 
     private NegocioPessoa negocioPessoa;
     private NegocioMatricula negocioMatricula;
@@ -25,13 +26,13 @@ public class Fachada {
     private NegocioModalidade negocioModalidade;
 
     private Fachada() {
-        this.repositorioMatricula = new RepositorioMatricula();
-//        this.repositorioPessoa = new RepositorioPessoa();
-        this.repositorioMensalidade = new RepositorioMensalidade();
-        this.negocioPessoa = new NegocioPessoa(repositorioPessoa);
-        this.negocioMatricula = new NegocioMatricula(repositorioMatricula, repositorioPessoa, repositorioMensalidade);
-        this.negocioMensalidade = new NegocioMensalidade(repositorioMatricula);
-        this.negocioModalidade = new NegocioModalidade(new RepositorioModalidade());
+        this.dbMatricula = new DbMatricula();
+        this.dbCliente = new DbCliente();
+        this.dbMensalidade = new DbMensalidade();
+        this.negocioPessoa = new NegocioPessoa(dbCliente, dbFuncionario);
+        this.negocioMatricula = new NegocioMatricula(dbMatricula, dbCliente, dbMensalidade);
+        this.negocioMensalidade = new NegocioMensalidade(dbMatricula);
+        this.negocioModalidade = new NegocioModalidade(new DbModalidade());
     }
 
     public static Fachada getInstancia() {
