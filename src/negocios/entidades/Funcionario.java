@@ -14,7 +14,7 @@ public class Funcionario extends Pessoa{
         super(nome, sexo, dataDeNascimento, cpf, telefone, endereco);
         this.gerente = gerente;
         this.senha = senha;
-    }
+     }
 
     public String getSenha() {
         return senha;

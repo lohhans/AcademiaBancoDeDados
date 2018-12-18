@@ -58,6 +58,7 @@ public class Fachada {
     // Funcionalidades de cliente
 
     public void cadastrarCliente(String nome, String sexo, Date dataDeNascimento, String cpf, String telefone, String cep, String numero, String rua, String bairro, String cidade, String nomeEmergencia, String telefoneEmergencia) throws PessoaJaCadastradaException, DadosInvalidosException, CpfInvalidoException, CepInvalidoException, SexoIncorretoException {
+
         Endereco endereco = new Endereco(cep, numero, rua, bairro, cidade);
 
         Pessoa cliente = new Cliente(nome, sexo, dataDeNascimento, cpf, telefone, endereco, nomeEmergencia, telefoneEmergencia);
