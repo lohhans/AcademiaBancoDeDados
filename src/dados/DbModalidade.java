@@ -21,7 +21,6 @@ public class DbModalidade {
             stmt.setInt(2, modalidade.getCodigoModalidade());
             stmt.setDouble(3, modalidade.getPreco());
 
-
             stmt.executeUpdate();
 
 
@@ -71,17 +70,20 @@ public class DbModalidade {
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        Modalidade modalidadeBanco= null;
-
         try {
             stmt = conexao.prepareStatement("SELECT * FROM  modalidade WHERE codigoModalidade ="+modalidade.getCodigoModalidade());
             rs = stmt.executeQuery();
-
+            rs.next();
             //verifica se a consulta nao esta vazia
-            if(rs.isBeforeFirst()){
+            if(!rs.isBeforeFirst()){
 
-                modalidadeBanco = modalidade;
+                String nome = rs.getString("nome");
+                double preco = rs.getDouble("preco");
+                int codigo = rs.getInt("codigoModalidade");
 
+                Modalidade modalidadeBanco = new Modalidade(codigo, nome, preco);
+                ConnectionFactory.closeConnection(conexao, stmt, rs);
+                return modalidade;
             }
 
         } catch (SQLException e) {
@@ -92,7 +94,7 @@ public class DbModalidade {
 
         }
 
-        return modalidadeBanco;
+        return null;
     }
 
 
@@ -102,19 +104,20 @@ public class DbModalidade {
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        Modalidade modalidade = null;
-
         try {
             stmt = conexao.prepareStatement("SELECT * FROM modalidade WHERE codigoModalidade ="+codigoModalidade);
             rs = stmt.executeQuery();
-
+            rs.next();
             //verifica se a consulta nao esta vazia
-            if(rs.isBeforeFirst()){
+            if(!rs.isBeforeFirst()){
 
-                modalidade.setNome(rs.getString("nome"));
-                modalidade.setPreco(rs.getDouble("preco"));
-                modalidade.setCodigoModalidade(rs.getInt("dodigoModalidade"));
+                String nome = rs.getString("nome");
+                double preco = rs.getDouble("preco");
+                int codigo = rs.getInt("codigoModalidade");
 
+                Modalidade modalidade = new Modalidade(codigo, nome, preco);
+                ConnectionFactory.closeConnection(conexao, stmt, rs);
+                return modalidade;
             }
 
         } catch (SQLException e) {
@@ -125,7 +128,7 @@ public class DbModalidade {
 
         }
 
-        return modalidade;
+        return null;
     }
 
     public void atualizarNomeModalidade(int codigoModaliade, String novoNome){
@@ -171,6 +174,7 @@ public class DbModalidade {
     }
 
     public void removerModalidade(Modalidade modalidade){
+        removerMatriculaModalidade(modalidade.getCodigoModalidade());
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -190,15 +194,34 @@ public class DbModalidade {
 
     }
 
+    public void removerMatriculaModalidade(int codModalidade){
+
+        Connection conexao = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = conexao.prepareStatement("DELETE  FROM  matricula_modalidade WHERE codModalidade=" + codModalidade);
+
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            ConnectionFactory.closeConnection(conexao, stmt);
+
+        }
+
+    }
+
     public ArrayList<Modalidade> getListaDeModalidades(){
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        Modalidade modalidade= null;
 
-        ArrayList <Modalidade> modalidades= null;
+        ArrayList <Modalidade> modalidades = new ArrayList<Modalidade>();
 
         try {
             stmt = conexao.prepareStatement("SELECT * FROM modalidade");
@@ -206,9 +229,10 @@ public class DbModalidade {
 
             while (rs.next()){
 
-                modalidade.setCodigoModalidade(rs.getInt("codigoModalidade"));
-                modalidade.setNome(rs.getString("nome"));
-                modalidade.setPreco(rs.getDouble("preco"));
+                String nome = rs.getString("nome");
+                double preco = rs.getDouble("preco");
+                int codigo = rs.getInt("codigoModalidade");
+                Modalidade modalidade = new Modalidade(codigo, nome, preco);
                 modalidades.add(modalidade);
 
             }
