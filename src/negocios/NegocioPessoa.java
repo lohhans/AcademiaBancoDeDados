@@ -15,8 +15,8 @@ import java.util.ArrayList;
 
 public class NegocioPessoa {
 
-    private DbCliente dbCliente = new DbCliente();
-    private DbFuncionario dbFuncionario = new DbFuncionario();
+    private DbCliente dbCliente;
+    private DbFuncionario dbFuncionario;
     private DbAvaliacao dbAvaliacao = new DbAvaliacao();
 
     public NegocioPessoa(DbCliente dbCliente, DbFuncionario dbFuncionario ) {
@@ -33,40 +33,28 @@ public class NegocioPessoa {
         }
     }
 
-    public void adicionarCliente(Cliente cliente){
+    public void adicionarCliente(Cliente cliente) throws PessoaJaCadastradaException {
 
         if (dbCliente.esvaziou()){
             dbCliente.adicionarCliente(cliente);
         } else if (dbCliente.buscarCliente(cliente) == null){
             dbCliente.adicionarCliente(cliente);
         } else {
-            try {
-                throw new PessoaJaCadastradaException();
-            } catch (PessoaJaCadastradaException e) {
-                e.printStackTrace();
-            }
+            throw new PessoaJaCadastradaException();
+
         }
     }
 
-    public void adicionarFuncionario(Funcionario funcionario){
-
-        if (dbFuncionario == null){
-
-            System.out.println("oii");
-        }
-
+    public void adicionarFuncionario(Funcionario funcionario) throws PessoaJaCadastradaException {
         if (dbFuncionario.esvaziou()){
-
             dbFuncionario.adicionarFuncionario(funcionario);
 
         } else if (dbFuncionario.buscarFuncionario(funcionario) == null){
             dbFuncionario.adicionarFuncionario(funcionario);
+
         } else {
-            try {
                 throw new PessoaJaCadastradaException();
-            } catch (PessoaJaCadastradaException e) {
-                e.printStackTrace();
-            }
+
         }
     }
 
@@ -145,14 +133,11 @@ public class NegocioPessoa {
     public Pessoa buscaPessoaCpf(String cpf) throws PessoaNaoEncontradaException {
 
         if (dbFuncionario.buscarFuncionario(cpf) != null){
-            System.out.println("entrou");
             return dbFuncionario.buscarFuncionario(cpf);
         }else if (dbCliente.buscarCliente(cpf) != null){
-            System.out.println("entrouCli");
             return dbCliente.buscarCliente(cpf);
 
         } else {
-            System.out.println("bosta");
             throw new PessoaNaoEncontradaException();
         }
     }

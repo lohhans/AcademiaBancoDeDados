@@ -54,8 +54,6 @@ public class DbFuncionario {
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        Funcionario funcionarioBanco= null;
-        Endereco endereco = null;
         try {
             stmt = conexao.prepareStatement("SELECT nome, sexo, dataDeNascimento, cpf, telefone, cep," +
                     " numero, rua, bairro, cidade, cidade, senha, gerente " +
@@ -63,22 +61,32 @@ public class DbFuncionario {
             rs = stmt.executeQuery();
 
             //verifica se a consulta nao esta vazia
-            if(rs.isBeforeFirst()){
+            rs = stmt.executeQuery();
+            rs.next();
 
-                endereco.setCep(rs.getString("cep"));
-                endereco.setNumero(rs.getString("numero"));
-                endereco.setRua(rs.getString("rua"));
-                endereco.setBairro(rs.getString("bairro"));
-                endereco.setCidade(rs.getString("cidade"));
+            if(!rs.isBeforeFirst()){
+                String cep = rs.getString("cep");
+                String numero = rs.getString("numero");
+                String rua = rs.getString("rua");
+                String bairro = rs.getString("bairro");
+                String cidade = rs.getString("cidade");
 
-                funcionarioBanco.setNome(rs.getString("nome"));
-                funcionarioBanco.setSexo(rs.getString("sexo"));
-                funcionarioBanco.setDataDeNascimento(rs.getDate("dataDeNacimento"));
-                funcionarioBanco.setEndereco(endereco);
-                funcionarioBanco.setSenha(rs.getString("senha"));
+                Endereco endereco = new Endereco(cep,numero,rua,bairro,cidade);
+
+                String nome = rs.getString("nome");
+                String sexo = rs.getString("sexo");
+                Date dataNasc = rs.getDate("dataDeNascimento");
+                String telefone = rs.getString("telefone");
+                String senha = rs.getString("senha");
+                String cpf = rs.getString("cpf");
+
+                Funcionario funcionarioBanco= new Funcionario(nome, sexo, dataNasc, cpf, telefone, endereco,senha);
                 funcionarioBanco.setGerente(rs.getBoolean("gerente"));
 
+                return funcionarioBanco;
             }
+
+
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -88,7 +96,7 @@ public class DbFuncionario {
 
         }
 
-        return funcionarioBanco;
+        return null;
     }
 
     //Metodo de sobrecarga
@@ -114,8 +122,6 @@ public class DbFuncionario {
 
                 Endereco endereco = new Endereco(cep,numero,rua,bairro,cidade);
 
-                System.out.println(endereco.getCidade());
-
                 String nome = rs.getString("nome");
                 String sexo = rs.getString("sexo");
                 Date dataNasc = rs.getDate("dataDeNascimento");
@@ -125,7 +131,6 @@ public class DbFuncionario {
                 Funcionario funcionarioBanco= new Funcionario(nome, sexo, dataNasc, cpf, telefone, endereco,senha);
                 funcionarioBanco.setGerente(rs.getBoolean("gerente"));
 
-                System.out.println("antonio123");
                 return funcionarioBanco;
             }
 
@@ -141,28 +146,21 @@ public class DbFuncionario {
     }
 
     public boolean esvaziou(){
-        System.out.println("priquito\n");
-
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
         boolean vazio = false;
-        System.out.println("priquito2\n");
 
         try {
             stmt = conexao.prepareStatement("SELECT * FROM funcionario");
             rs = stmt.executeQuery();
-            System.out.println("priquito3\n");
+            rs.next();
 
             //verifica se a consulta nao esta vazia
             if(rs.isBeforeFirst()) {
-                System.out.println("priquito4\n");
-
                 vazio = true;
             }else{
-                System.out.println("priquito5\n");
-
                 vazio = false;
             }
         } catch (SQLException e) {
