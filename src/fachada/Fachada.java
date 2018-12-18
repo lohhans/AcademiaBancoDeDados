@@ -28,6 +28,7 @@ public class Fachada {
     private Fachada() {
         this.dbMatricula = new DbMatricula();
         this.dbCliente = new DbCliente();
+        this.dbFuncionario= new DbFuncionario();
         this.dbMensalidade = new DbMensalidade();
         this.negocioPessoa = new NegocioPessoa(dbCliente, dbFuncionario);
         this.negocioMatricula = new NegocioMatricula(dbMatricula, dbCliente, dbMensalidade);
@@ -149,6 +150,7 @@ public class Fachada {
         Pessoa p = negocioPessoa.buscaPessoaCpf(cpfFuncionario);
         Funcionario f = (Funcionario) p;
         f.setGerente(gerente);
+        negocioPessoa.atualizarFuncionario(f.getCpf(), f);
     }
 
     public void mudarSenhaFuncionario(String cpfFuncionario, String novaSenha) throws PessoaNaoEncontradaException {
