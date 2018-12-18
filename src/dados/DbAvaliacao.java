@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DbAvaliacao {
 
@@ -59,8 +60,7 @@ public class DbAvaliacao {
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        Avaliacao avaliacao = null;
-        ArrayList<Avaliacao> avaliacoes = null;
+        ArrayList<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
 
 
         try {
@@ -70,21 +70,24 @@ public class DbAvaliacao {
 
             while (rs.next()){
 
+                int numeroDaAvaliacao = rs.getInt("numeroDaAvaliacao");
+                double circunferenciaAbdominal = rs.getDouble("circunferenciaAbdominal");
+                double torax = rs.getDouble("torax");
+                double cintura = rs.getDouble("cintura");
+                double quadril = rs.getDouble("quadril");
+                double antebracoDireito = rs.getDouble("antebracoDireito");
+                double antebracoEsquerdo = rs.getDouble("antebracoEsquerdo");
+                double bracoDireito = rs.getDouble("bracoDireito");
+                double bracoEsquerdo = rs.getDouble("bracoEsquerdo");
+                double coxaDireita = rs.getDouble("coxaDireita");
+                double coxaEsquerda = rs.getDouble("coxaEsquerda");
+                double panturrilhaDireita = rs.getDouble("panturrilhaDireita");
+                double panturrilhaEsquerda = rs.getDouble("panturrilhaEsquerda");
+                Date data = rs.getDate("data");
 
-                avaliacao.setNumeroDaAvaliacao(rs.getInt("numeroDaAvaliacao"));
-                avaliacao.setCircunferenciaAbdominal(rs.getDouble("circunferenciaAbdominal"));
-                avaliacao.setTorax(rs.getDouble("circunferenciaAbdominal"));
-                avaliacao.setCintura(rs.getDouble("cintura"));
-                avaliacao.setQuadril(rs.getDouble("quadril"));
-                avaliacao.setAntebracoDireito(rs.getDouble("antebracoDireito"));
-                avaliacao.setAntebracoEsquerdo(rs.getDouble("antebracoEsquerdo"));
-                avaliacao.setBracoDireito(rs.getDouble("bracoDireito"));
-                avaliacao.setBracoEsquerdo(rs.getDouble("bracoEsquerdo"));
-                avaliacao.setCoxaDireita(rs.getDouble("coxaDireita"));
-                avaliacao.setCoxaEsquerda(rs.getDouble("coxaEsquerda"));
-                avaliacao.setPanturrilhaDireita(rs.getDouble("panturrilhaDireita"));
-                avaliacao.setPanturrilhaEsquerda(rs.getDouble("panturrilhaEsquerda"));
-                avaliacao.setData(rs.getDate("data"));
+                Avaliacao avaliacao = new Avaliacao(circunferenciaAbdominal, torax, cintura, quadril, antebracoDireito, antebracoEsquerdo, bracoDireito, bracoEsquerdo, coxaDireita, coxaEsquerda, panturrilhaDireita, panturrilhaEsquerda);
+                avaliacao.setData(data);
+                avaliacao.setNumeroDaAvaliacao(numeroDaAvaliacao);
 
                 avaliacoes.add(avaliacao);
 

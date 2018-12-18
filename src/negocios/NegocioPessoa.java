@@ -97,8 +97,15 @@ public class NegocioPessoa {
     public void adicionarAvaliacao(String cpfCliente, Avaliacao avaliacao) throws PessoaNaoEncontradaException {
         Cliente cliente = dbCliente.buscarCliente(cpfCliente);
         if (cliente != null){
-            avaliacao.setNumeroDaAvaliacao((dbAvaliacao.getListaDeAvaliacoes(cpfCliente).size())+1);
-            dbAvaliacao.adicionar(cpfCliente, avaliacao);
+
+            if(dbAvaliacao.getListaDeAvaliacoes(cpfCliente).isEmpty()){
+                avaliacao.setNumeroDaAvaliacao(1);
+                dbAvaliacao.adicionar(cpfCliente, avaliacao);
+            }else{
+                int ultimo = dbAvaliacao.getListaDeAvaliacoes(cpfCliente).size()-1;
+                avaliacao.setNumeroDaAvaliacao((dbAvaliacao.getListaDeAvaliacoes(cpfCliente).get(ultimo).getNumeroDaAvaliacao())+1);
+                dbAvaliacao.adicionar(cpfCliente, avaliacao);
+            }
 
         } else {
             throw new PessoaNaoEncontradaException();
