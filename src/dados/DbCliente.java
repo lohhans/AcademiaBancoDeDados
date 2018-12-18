@@ -53,32 +53,41 @@ public class DbCliente {
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        Cliente clienteBanco= null;
-        Endereco endereco = null;
         try {
             stmt = conexao.prepareStatement("SELECT nome, sexo, dataDeNascimento, cpf, telefone, cep," +
-                                                 " numero, rua, bairro, cidade, nomeEmergencia, telefoneEmergencia, matriculado " +
-                                                 "FROM cliente WHERE cpf ="+cliente.getCpf());
+                    " numero, rua, bairro, cidade, nomeEmergencia, telefoneEmergencia, matriculado " +
+                    "FROM cliente WHERE cpf ="+cliente.getCpf());
             rs = stmt.executeQuery();
 
             //verifica se a consulta nao esta vazia
-            if(rs.isBeforeFirst()){
+            rs = stmt.executeQuery();
+            rs.next();
 
-                endereco.setCep(rs.getString("cep"));
-                endereco.setNumero(rs.getString("numero"));
-                endereco.setRua(rs.getString("rua"));
-                endereco.setBairro(rs.getString("bairro"));
-                endereco.setCidade(rs.getString("cidade"));
+            if(!rs.isBeforeFirst()){
+                String cep = rs.getString("cep");
+                String numero = rs.getString("numero");
+                String rua = rs.getString("rua");
+                String bairro = rs.getString("bairro");
+                String cidade = rs.getString("cidade");
 
-                clienteBanco.setNome(rs.getString("nome"));
-                clienteBanco.setSexo(rs.getString("sexo"));
-                clienteBanco.setDataDeNascimento(rs.getDate("dataDeNacimento"));
-                clienteBanco.setEndereco(endereco);
-                clienteBanco.setNomeEmergencia(rs.getString("nomeEmergencia"));
-                clienteBanco.setTelefoneEmergencia(rs.getString("telefoneEmergencia"));
+                Endereco endereco = new Endereco(cep,numero,rua,bairro,cidade);
+
+                String nome = rs.getString("nome");
+                String sexo = rs.getString("sexo");
+                Date dataNasc = rs.getDate("dataDeNascimento");
+                String telefone = rs.getString("telefone");
+                String nomeEmergencia = rs.getString("nomeEmergencia");
+                String telefoneEmergencia = rs.getString("telefoneEmergencia");
+                String cpf = rs.getString("cpf");
+
+                Cliente clienteBanco = new Cliente(nome, sexo, dataNasc, cpf, telefone, endereco, nomeEmergencia, telefoneEmergencia);
                 clienteBanco.setMatriculado(rs.getBoolean("matriculado"));
 
+
+                return clienteBanco;
             }
+
+
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -88,8 +97,10 @@ public class DbCliente {
 
         }
 
-        return clienteBanco;
+        return null;
     }
+
+
 
     //Metodo de sobrecarga
     public Cliente buscarCliente(String cpf){
@@ -98,8 +109,6 @@ public class DbCliente {
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        Cliente clienteBanco= null;
-        Endereco endereco = null;
         try {
             stmt = conexao.prepareStatement("SELECT nome, sexo, dataDeNascimento, cpf, telefone, cep," +
                     " numero, rua, bairro, cidade, nomeEmergencia, telefoneEmergencia, matriculado " +
@@ -107,23 +116,34 @@ public class DbCliente {
             rs = stmt.executeQuery();
 
             //verifica se a consulta nao esta vazia
-            if(rs.isBeforeFirst()){
+            rs = stmt.executeQuery();
+            rs.next();
 
-                endereco.setCep(rs.getString("cep"));
-                endereco.setNumero(rs.getString("numero"));
-                endereco.setRua(rs.getString("rua"));
-                endereco.setBairro(rs.getString("bairro"));
-                endereco.setCidade(rs.getString("cidade"));
+            if(!rs.isBeforeFirst()){
+                String cep = rs.getString("cep");
+                String numero = rs.getString("numero");
+                String rua = rs.getString("rua");
+                String bairro = rs.getString("bairro");
+                String cidade = rs.getString("cidade");
 
-                clienteBanco.setNome(rs.getString("nome"));
-                clienteBanco.setSexo(rs.getString("sexo"));
-                clienteBanco.setDataDeNascimento(rs.getDate("dataDeNacimento"));
-                clienteBanco.setEndereco(endereco);
-                clienteBanco.setNomeEmergencia(rs.getString("nomeEmergencia"));
-                clienteBanco.setTelefoneEmergencia(rs.getString("telefoneEmergencia"));
+                Endereco endereco = new Endereco(cep,numero,rua,bairro,cidade);
+
+                String nome = rs.getString("nome");
+                String sexo = rs.getString("sexo");
+                Date dataNasc = rs.getDate("dataDeNascimento");
+                String telefone = rs.getString("telefone");
+                String nomeEmergencia = rs.getString("nomeEmergencia");
+                String telefoneEmergencia = rs.getString("telefoneEmergencia");
+                String cpfBanco = rs.getString("cpf");
+
+                Cliente clienteBanco = new Cliente(nome, sexo, dataNasc, cpfBanco, telefone, endereco, nomeEmergencia, telefoneEmergencia);
                 clienteBanco.setMatriculado(rs.getBoolean("matriculado"));
 
+
+                return clienteBanco;
             }
+
+
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -133,7 +153,7 @@ public class DbCliente {
 
         }
 
-        return clienteBanco;
+        return null;
     }
 
     public boolean esvaziou(){
@@ -147,6 +167,7 @@ public class DbCliente {
         try {
             stmt = conexao.prepareStatement("SELECT * FROM cliente");
             rs = stmt.executeQuery();
+            rs.next();
 
             //verifica se a consulta nao esta vazia
             if(rs.isBeforeFirst()) {
@@ -214,6 +235,8 @@ public class DbCliente {
         try {
             stmt = conexao.prepareStatement("SELECT * FROM cliente");
             rs = stmt.executeQuery();
+            rs.next();
+
 
             while (rs.next()){
 
