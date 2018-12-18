@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DbModalidade {
 
@@ -31,6 +32,191 @@ public class DbModalidade {
             ConnectionFactory.closeConnection(conexao, stmt);
 
         }
+
+    }
+
+
+    public boolean esvaziou(){
+
+        Connection conexao = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        boolean vazio = false;
+
+        try {
+            stmt = conexao.prepareStatement("SELECT * FROM modalidade");
+            rs = stmt.executeQuery();
+
+            //verifica se a consulta nao esta vazia
+            if(rs.isBeforeFirst()) {
+                vazio = true;
+            }else{
+                vazio = false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            ConnectionFactory.closeConnection(conexao, stmt, rs);
+
+        }
+
+        return vazio;
+    }
+
+
+    public Modalidade buscarModalidade(Modalidade modalidade){
+
+        Connection conexao = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        Modalidade modalidadeBanco= null;
+
+        try {
+            stmt = conexao.prepareStatement("SELECT * FROM  modalidade WHERE codigoModalidade ="+modalidade.getCodigoModalidade());
+            rs = stmt.executeQuery();
+
+            //verifica se a consulta nao esta vazia
+            if(rs.isBeforeFirst()){
+
+                modalidadeBanco = modalidade;
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }finally {
+            ConnectionFactory.closeConnection(conexao, stmt, rs);
+
+        }
+
+        return modalidadeBanco;
+    }
+
+
+    public Modalidade buscarModalidade(int codigoModalidade){
+
+        Connection conexao = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        Modalidade modalidade = null;
+
+        try {
+            stmt = conexao.prepareStatement("SELECT * FROM modalidade WHERE codigoModalidade ="+codigoModalidade);
+            rs = stmt.executeQuery();
+
+            //verifica se a consulta nao esta vazia
+            if(rs.isBeforeFirst()){
+
+                modalidade.setNome(rs.getString("nome"));
+                modalidade.setPreco(rs.getDouble("preco"));
+                modalidade.setCodigoModalidade(rs.getInt("dodigoModalidade"));
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }finally {
+            ConnectionFactory.closeConnection(conexao, stmt, rs);
+
+        }
+
+        return modalidade;
+    }
+
+    public void atualizarNomeModalidade(int codigoModaliade, String novoNome){
+
+        Connection conexao = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = conexao.prepareStatement("UPDATE modalidade SET nome = ? WHERE codigoModalidade=" + codigoModaliade);
+
+            stmt.setString(1, novoNome);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            ConnectionFactory.closeConnection(conexao, stmt);
+
+        }
+
+    }
+
+    public void atualizarPrecoModalidade(int codigoModaliade, double novoPreco){
+
+        Connection conexao = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = conexao.prepareStatement("UPDATE modalidade SET preco = ? WHERE codigoModalidade=" + codigoModaliade);
+
+            stmt.setDouble(1, novoPreco);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            ConnectionFactory.closeConnection(conexao, stmt);
+
+        }
+
+    }
+
+    public void removerModalidade(Modalidade modalidade){
+
+        Connection conexao = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = conexao.prepareStatement("DELETE  FROM  modalidade WHERE codigoModalidade =" + modalidade.getCodigoModalidade());
+
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            ConnectionFactory.closeConnection(conexao, stmt);
+
+        }
+
+    }
+
+    public ArrayList<Modalidade> getListaDeModalidades(){
+
+        Connection conexao = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        Modalidade modalidade= null;
+
+        ArrayList <Modalidade> modalidades= null;
+
+        try {
+            stmt = conexao.prepareStatement("SELECT * FROM modalidade");
+            rs = stmt.executeQuery();
+
+            while (rs.next()){
+
+                modalidade.setCodigoModalidade(rs.getInt("codigoModalidade"));
+                modalidade.setNome(rs.getString("nome"));
+                modalidade.setPreco(rs.getDouble("preco"));
+                modalidades.add(modalidade);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return  modalidades;
 
     }
 

@@ -4,13 +4,19 @@ public class Modalidade {
 
     private String nome;
     private static int id = 1;
-    private final int codigoModalidade;
+    private int codigoModalidade;
     private double preco;
 
     public Modalidade(String nome, double preco) {
         this.nome = nome;
         codigoModalidade = id;
         ++id;
+        this.preco = preco;
+    }
+
+    public Modalidade(int codigo, String nome, double preco) {
+        this.nome = nome;
+        this.codigoModalidade = codigo;
         this.preco = preco;
     }
 
@@ -32,6 +38,10 @@ public class Modalidade {
 
     public double getPreco() {
         return preco;
+    }
+
+    public void setCodigoModalidade(int codigoModalidade) {
+        this.codigoModalidade = codigoModalidade;
     }
 
     public void setPreco(double preco) {
