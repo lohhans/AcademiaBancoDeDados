@@ -98,30 +98,35 @@ public class DbFuncionario {
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        Funcionario funcionarioBanco= null;
-        Endereco endereco = null;
         try {
             stmt = conexao.prepareStatement("SELECT nome, sexo, dataDeNascimento, cpf, telefone, cep," +
                     " numero, rua, bairro, cidade, cidade, senha, gerente " +
                     "FROM funcionario WHERE cpf ="+cpf);
             rs = stmt.executeQuery();
+            rs.next();
 
-            //verifica se a consulta nao esta vazia
             if(!rs.isBeforeFirst()){
+                String cep = rs.getString("cep");
+                String numero = rs.getString("numero");
+                String rua = rs.getString("rua");
+                String bairro = rs.getString("bairro");
+                String cidade = rs.getString("cidade");
 
-                endereco.setCep(rs.getString("cep"));
-                endereco.setNumero(rs.getString("numero"));
-                endereco.setRua(rs.getString("rua"));
-                endereco.setBairro(rs.getString("bairro"));
-                endereco.setCidade(rs.getString("cidade"));
+                Endereco endereco = new Endereco(cep,numero,rua,bairro,cidade);
 
-                funcionarioBanco.setNome(rs.getString("nome"));
-                funcionarioBanco.setSexo(rs.getString("sexo"));
-                funcionarioBanco.setDataDeNascimento(rs.getDate("dataDeNacimento"));
-                funcionarioBanco.setEndereco(endereco);
-                funcionarioBanco.setSenha(rs.getString("senha"));
+                System.out.println(endereco.getCidade());
+
+                String nome = rs.getString("nome");
+                String sexo = rs.getString("sexo");
+                Date dataNasc = rs.getDate("dataDeNascimento");
+                String telefone = rs.getString("telefone");
+                String senha = rs.getString("senha");
+
+                Funcionario funcionarioBanco= new Funcionario(nome, sexo, dataNasc, cpf, telefone, endereco,senha);
                 funcionarioBanco.setGerente(rs.getBoolean("gerente"));
 
+                System.out.println("antonio123");
+                return funcionarioBanco;
             }
 
         } catch (SQLException e) {
@@ -132,7 +137,7 @@ public class DbFuncionario {
 
         }
 
-        return funcionarioBanco;
+        return null;
     }
 
     public boolean esvaziou(){

@@ -3,7 +3,6 @@ package negocios;
 import dados.DbAvaliacao;
 import dados.DbCliente;
 import dados.DbFuncionario;
-import dados.interfaces.IRepositorioPessoa;
 import negocios.entidades.Avaliacao;
 import negocios.entidades.Cliente;
 import negocios.entidades.Funcionario;
@@ -52,6 +51,8 @@ public class NegocioPessoa {
     public void adicionarFuncionario(Funcionario funcionario){
 
         if (dbFuncionario == null){
+
+            System.out.println("oii");
         }
 
         if (dbFuncionario.esvaziou()){
@@ -144,10 +145,14 @@ public class NegocioPessoa {
     public Pessoa buscaPessoaCpf(String cpf) throws PessoaNaoEncontradaException {
 
         if (dbFuncionario.buscarFuncionario(cpf) != null){
+            System.out.println("entrou");
             return dbFuncionario.buscarFuncionario(cpf);
         }else if (dbCliente.buscarCliente(cpf) != null){
+            System.out.println("entrouCli");
             return dbCliente.buscarCliente(cpf);
+
         } else {
+            System.out.println("bosta");
             throw new PessoaNaoEncontradaException();
         }
     }
