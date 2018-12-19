@@ -5,6 +5,10 @@ import negocios.entidades.Endereco;
 import negocios.entidades.Funcionario;
 
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class DbFuncionario {
 
@@ -18,13 +22,19 @@ public class DbFuncionario {
                     " numero, rua, bairro, cidade, senha, gerente) VALUES (?, ?, ?, ?, ?, ?," +
                     " ?, ?, ?, ?, ?, ?) ");
 
-
-
-
             stmt.setString(1, funcionario.getNome());
             stmt.setString(2, funcionario.getSexo());
-            java.sql.Date sqlDate = new java.sql.Date(funcionario.getDataDeNascimento().getDate());
-            stmt.setDate(3, sqlDate);
+
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(funcionario.getDataDeNascimento());
+            int dia = cal.get(Calendar.DAY_OF_MONTH);
+            int mes = cal.get(Calendar.MONTH)+1;
+            int ano = cal.get(Calendar.YEAR);
+
+            String dataNasc = dia+"/"+mes+"/"+ano;
+
+
+            stmt.setString(3, dataNasc);
             stmt.setString(4, funcionario.getCpf());
             stmt.setString(5, funcionario.getTelefone());
             stmt.setString(6, funcionario.getEndereco().getCep());
@@ -38,7 +48,7 @@ public class DbFuncionario {
             stmt.executeUpdate();
 
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
 
         } finally {
@@ -75,14 +85,24 @@ public class DbFuncionario {
 
                 String nome = rs.getString("nome");
                 String sexo = rs.getString("sexo");
-                Date dataNasc = rs.getDate("dataDeNascimento");
+
+                String dataNasc = rs.getString("dataDeNascimento");
+                Date data = new Date();
+                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    data = (Date) formato.parse(dataNasc);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
                 String telefone = rs.getString("telefone");
                 String senha = rs.getString("senha");
                 String cpf = rs.getString("cpf");
 
-                Funcionario funcionarioBanco= new Funcionario(nome, sexo, dataNasc, cpf, telefone, endereco,senha);
+                Funcionario funcionarioBanco= new Funcionario(nome, sexo, data, cpf, telefone, endereco,senha);
                 funcionarioBanco.setGerente(rs.getBoolean("gerente"));
 
+                ConnectionFactory.closeConnection(conexao, stmt, rs);
                 return funcionarioBanco;
             }
 
@@ -124,13 +144,23 @@ public class DbFuncionario {
 
                 String nome = rs.getString("nome");
                 String sexo = rs.getString("sexo");
-                Date dataNasc = rs.getDate("dataDeNascimento");
+
+                String dataNasc = rs.getString("dataDeNascimento");
+                Date data = new Date();
+                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    data = (Date) formato.parse(dataNasc);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
                 String telefone = rs.getString("telefone");
                 String senha = rs.getString("senha");
 
-                Funcionario funcionarioBanco= new Funcionario(nome, sexo, dataNasc, cpf, telefone, endereco,senha);
+                Funcionario funcionarioBanco= new Funcionario(nome, sexo, data, cpf, telefone, endereco,senha);
                 funcionarioBanco.setGerente(rs.getBoolean("gerente"));
 
+                ConnectionFactory.closeConnection(conexao, stmt, rs);
                 return funcionarioBanco;
             }
 
@@ -185,7 +215,16 @@ public class DbFuncionario {
 
             stmt.setString(1, funcionario.getNome());
             stmt.setString(2, funcionario.getSexo());
-            stmt.setDate(3, (Date) funcionario.getDataDeNascimento());
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(funcionario.getDataDeNascimento());
+            int dia = cal.get(Calendar.DAY_OF_MONTH);
+            int mes = cal.get(Calendar.MONTH)+1;
+            int ano = cal.get(Calendar.YEAR);
+
+            String dataNasc = dia+"/"+mes+"/"+ano;
+
+
+            stmt.setString(3, dataNasc);
             stmt.setString(4, funcionario.getCpf());
             stmt.setString(5, funcionario.getTelefone());
             stmt.setString(6, funcionario.getEndereco().getCep());

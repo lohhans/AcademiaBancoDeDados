@@ -41,7 +41,7 @@ public class ControleAtualizarEmergencia implements Initializable {
     @FXML
     private void acaoAtualizarEmergencia(ActionEvent event){
         try {
-            fachada.atualizarNomeEmergenciaCliente(cpf.getText(), novoTelefone.getText());
+            fachada.atualizarNomeEmergenciaCliente(cpf.getText(), novoNome.getText());
             fachada.atualizarTelefoneEmergenciaCliente(cpf.getText(), novoTelefone.getText());
 
             AtualizacaoDeDadosConcluidaAlerta a = new AtualizacaoDeDadosConcluidaAlerta();

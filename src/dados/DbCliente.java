@@ -5,7 +5,11 @@ import negocios.entidades.Cliente;
 import negocios.entidades.Endereco;
 
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class DbCliente {
 
@@ -21,8 +25,16 @@ public class DbCliente {
 
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getSexo());
-            java.sql.Date sqlDate = new java.sql.Date(cliente.getDataDeNascimento().getDate());
-            stmt.setDate(3, sqlDate);
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(cliente.getDataDeNascimento());
+            int dia = cal.get(Calendar.DAY_OF_MONTH);
+            int mes = cal.get(Calendar.MONTH)+1;
+            int ano = cal.get(Calendar.YEAR);
+
+            String dataNasc = dia+"/"+mes+"/"+ano;
+
+
+            stmt.setString(3, dataNasc);
             stmt.setString(4, cliente.getCpf());
             stmt.setString(5, cliente.getTelefone());
             stmt.setString(6, cliente.getEndereco().getCep());
@@ -74,13 +86,21 @@ public class DbCliente {
 
                 String nome = rs.getString("nome");
                 String sexo = rs.getString("sexo");
-                Date dataNasc = rs.getDate("dataDeNascimento");
+                String dataNasc = rs.getString("dataDeNascimento");
+                java.util.Date data = new java.util.Date();
+                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    data = (java.util.Date) formato.parse(dataNasc);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
                 String telefone = rs.getString("telefone");
                 String nomeEmergencia = rs.getString("nomeEmergencia");
                 String telefoneEmergencia = rs.getString("telefoneEmergencia");
                 String cpf = rs.getString("cpf");
 
-                Cliente clienteBanco = new Cliente(nome, sexo, dataNasc, cpf, telefone, endereco, nomeEmergencia, telefoneEmergencia);
+                Cliente clienteBanco = new Cliente(nome, sexo, data, cpf, telefone, endereco, nomeEmergencia, telefoneEmergencia);
                 clienteBanco.setMatriculado(rs.getBoolean("matriculado"));
 
 
@@ -130,13 +150,21 @@ public class DbCliente {
 
                 String nome = rs.getString("nome");
                 String sexo = rs.getString("sexo");
-                Date dataNasc = rs.getDate("dataDeNascimento");
+                String dataNasc = rs.getString("dataDeNascimento");
+                java.util.Date data = new java.util.Date();
+                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    data = (java.util.Date) formato.parse(dataNasc);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
                 String telefone = rs.getString("telefone");
                 String nomeEmergencia = rs.getString("nomeEmergencia");
                 String telefoneEmergencia = rs.getString("telefoneEmergencia");
                 String cpfBanco = rs.getString("cpf");
 
-                Cliente clienteBanco = new Cliente(nome, sexo, dataNasc, cpfBanco, telefone, endereco, nomeEmergencia, telefoneEmergencia);
+                Cliente clienteBanco = new Cliente(nome, sexo, data, cpfBanco, telefone, endereco, nomeEmergencia, telefoneEmergencia);
                 clienteBanco.setMatriculado(rs.getBoolean("matriculado"));
 
 
@@ -197,7 +225,16 @@ public class DbCliente {
 
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getSexo());
-            stmt.setDate(3, (Date) cliente.getDataDeNascimento());
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(cliente.getDataDeNascimento());
+            int dia = cal.get(Calendar.DAY_OF_MONTH);
+            int mes = cal.get(Calendar.MONTH)+1;
+            int ano = cal.get(Calendar.YEAR);
+
+            String dataNasc = dia+"/"+mes+"/"+ano;
+
+
+            stmt.setString(3, dataNasc);
             stmt.setString(4, cliente.getCpf());
             stmt.setString(5, cliente.getTelefone());
             stmt.setString(6, cliente.getEndereco().getCep());
@@ -228,9 +265,7 @@ public class DbCliente {
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        Cliente clienteBanco= null;
-        Endereco endereco = null;
-        ArrayList <Cliente> listaDePessoas = null;
+        ArrayList <Cliente> listaDePessoas = new ArrayList<Cliente>();
 
         try {
             stmt = conexao.prepareStatement("SELECT * FROM cliente");
@@ -240,18 +275,31 @@ public class DbCliente {
 
             while (rs.next()){
 
-                endereco.setCep(rs.getString("cep"));
-                endereco.setNumero(rs.getString("numero"));
-                endereco.setRua(rs.getString("rua"));
-                endereco.setBairro(rs.getString("bairro"));
-                endereco.setCidade(rs.getString("cidade"));
+                String cep = rs.getString("cep");
+                String numero = rs.getString("numero");
+                String rua = rs.getString("rua");
+                String bairro = rs.getString("bairro");
+                String cidade = rs.getString("cidade");
 
-                clienteBanco.setNome(rs.getString("nome"));
-                clienteBanco.setSexo(rs.getString("sexo"));
-                clienteBanco.setDataDeNascimento(rs.getDate("dataDeNacimento"));
-                clienteBanco.setEndereco(endereco);
-                clienteBanco.setNomeEmergencia(rs.getString("nomeEmergencia"));
-                clienteBanco.setTelefoneEmergencia(rs.getString("telefoneEmergencia"));
+                Endereco endereco = new Endereco(cep,numero,rua,bairro,cidade);
+
+                String nome = rs.getString("nome");
+                String sexo = rs.getString("sexo");
+                String dataNasc = rs.getString("dataDeNascimento");
+                java.util.Date data = new java.util.Date();
+                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    data = (Date) formato.parse(dataNasc);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                String telefone = rs.getString("telefone");
+                String nomeEmergencia = rs.getString("nomeEmergencia");
+                String telefoneEmergencia = rs.getString("telefoneEmergencia");
+                String cpfBanco = rs.getString("cpf");
+
+                Cliente clienteBanco = new Cliente(nome, sexo, data, cpfBanco, telefone, endereco, nomeEmergencia, telefoneEmergencia);
                 clienteBanco.setMatriculado(rs.getBoolean("matriculado"));
 
                 listaDePessoas.add(clienteBanco);
