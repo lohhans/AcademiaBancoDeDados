@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 import negocios.exception.*;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Main extends Application {
@@ -39,11 +41,19 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-//        Fachada fachada;
-//        fachada = Fachada.getInstancia();
-//
-//        try {
-//            fachada.cadastrarFuncionario("Funcionario", "Masculino", new Date(), "12345678900", "87988285821", "55740000", "02", "Rua Numero Dois", "Centro", "Machados", "00");
+          Fachada fachada;
+          fachada = Fachada.getInstancia();
+
+        Date dataFormatada = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            dataFormatada = formato.parse("1/1/2017");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+       // try {
+              //fachada.cadastrarFuncionario("Funcionario", "Masculino", dataFormatada, "12345678900", "87988285821", "55740000", "02", "Rua Numero Dois", "Centro", "Machados", "00");
 //            fachada.cadastrarFuncionario("Funcionarioasdasdasdasdasd", "Masculino", new Date(), "12345676900", "87988285821", "55740000", "02", "Rua Numero Dois", "Centro", "Machados", "00");
 //            fachada.cadastrarFuncionario("Gerente", "Masculino", new Date(), "98765432100", "87991500860", "55320000", "01", "Rua Numero Um", "Centro", "Lagoa do Ouro", "00");
 //            fachada.definirGerente("98765432100", true);
@@ -52,9 +62,13 @@ public class Main extends Application {
 //            fachada.cadastrarModalidade("Academia", 60);
 //            fachada.cadastrarModalidade("Fit Dance", 50);
 //            fachada.cadastrarModalidade("Jump", 55);
-//        } catch (PessoaJaCadastradaException | CepInvalidoException | SexoIncorretoException | CpfInvalidoException | DadosInvalidosException | PessoaNaoEncontradaException | ModalidadeJaCadastradaException e) {
-//            e.printStackTrace();
-//        }
+        //} catch (PessoaJaCadastradaException | CepInvalidoException | SexoIncorretoException | CpfInvalidoException | DadosInvalidosException e) {
+            //e.printStackTrace();
+      // }
+//
+//    } catch (PessoaJaCadastradaException | CepInvalidoException | SexoIncorretoException | CpfInvalidoException | DadosInvalidosException | PessoaNaoEncontradaException | ModalidadeJaCadastradaException e) {
+//        e.printStackTrace();
+//    }
 
         launch(args);
     }
