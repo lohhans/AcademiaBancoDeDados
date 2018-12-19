@@ -173,7 +173,7 @@ public class DbCliente {
 
 
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
 
         }finally {
