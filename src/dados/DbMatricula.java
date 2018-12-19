@@ -4,7 +4,10 @@ import connection.ConnectionFactory;
 import negocios.entidades.*;
 
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class DbMatricula {
 
@@ -27,7 +30,7 @@ public class DbMatricula {
 
             stmt.setString(1, matricula.getCliente().getCpf());
 
-            stmt.executeUpdate();
+           stmt.executeUpdate();
 
 
         } catch (SQLException e) {
@@ -47,6 +50,7 @@ public class DbMatricula {
         PreparedStatement stmt = null;
 
         try {
+
             stmt = conexao.prepareStatement("INSERT INTO matricula_modalidade (codMatricula, codModalidade) VALUES (?, ?) ");
 
             stmt.setString(1, codMatricula);
@@ -73,30 +77,51 @@ public class DbMatricula {
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        Cliente clienteBanco= null;
-        Endereco endereco = null;
+
         try {
             stmt = conexao.prepareStatement("SELECT nome, sexo, dataDeNascimento, cpf, telefone, cep," +
-                    " numero, rua, bairro, cidade, nomeEmergencia, telefoneEmergencia " +
-                    "FROM cliente WHERE cpf ="+cliente.getCpf());
+                    " numero, rua, bairro, cidade, nomeEmergencia, telefoneEmergencia, matriculado " +
+                    "FROM cliente WHERE cpf =" + cliente.getCpf());
             rs = stmt.executeQuery();
 
             //verifica se a consulta nao esta vazia
-            if(rs.isBeforeFirst()){
+            rs = stmt.executeQuery();
+            rs.next();
 
-                endereco.setCep(rs.getString("cep"));
-                endereco.setNumero(rs.getString("numero"));
-                endereco.setRua(rs.getString("rua"));
-                endereco.setBairro(rs.getString("bairro"));
-                endereco.setCidade(rs.getString("cidade"));
+            if (!rs.isBeforeFirst()) {
+                String cep = rs.getString("cep");
+                String numero = rs.getString("numero");
+                String rua = rs.getString("rua");
+                String bairro = rs.getString("bairro");
+                String cidade = rs.getString("cidade");
 
-                clienteBanco.setNome(rs.getString("nome"));
-                clienteBanco.setSexo(rs.getString("sexo"));
-                clienteBanco.setDataDeNascimento(rs.getDate("dataDeNacimento"));
-                clienteBanco.setEndereco(endereco);
-                clienteBanco.setNomeEmergencia(rs.getString("nomeEmergencia"));
-                clienteBanco.setTelefoneEmergencia(rs.getString("telefoneEmergencia"));
+                Endereco endereco = new Endereco(cep,numero,rua,bairro,cidade);
 
+                String nome = rs.getString("nome");
+                String sexo = rs.getString("sexo");
+                String dataNasc = rs.getString("dataDeNascimento");
+                java.util.Date data = new java.util.Date();
+                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    data = (java.util.Date) formato.parse(dataNasc);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                String telefone = rs.getString("telefone");
+                String nomeEmergencia = rs.getString("nomeEmergencia");
+                String telefoneEmergencia = rs.getString("telefoneEmergencia");
+                String cpf = rs.getString("cpf");
+
+                Cliente clienteBanco = new Cliente(nome, sexo, data, cpf, telefone, endereco, nomeEmergencia, telefoneEmergencia);
+                clienteBanco.setMatriculado(rs.getBoolean("matriculado"));
+
+
+                ArrayList<Modalidade> listaDeModalidades = listarModalidades(cliente.getCpf());
+                ArrayList<Mensalidade> listaDeMensalidades = listarMensalidades(cliente.getCpf());
+                Matricula matricula = new Matricula(clienteBanco,listaDeModalidades, listaDeMensalidades);
+                ConnectionFactory.closeConnection(conexao, stmt, rs);
+                return matricula;
             }
 
         } catch (SQLException e) {
@@ -107,15 +132,7 @@ public class DbMatricula {
 
         }
 
-        ArrayList<Modalidade> listaDeModalidades = listarModalidades(cliente.getCpf());
-        ArrayList<Mensalidade> listaDeMensalidades = listarMensalidades(cliente.getCpf());
-
-        Matricula matricula = null;
-        matricula.setCliente(clienteBanco);
-        matricula.setListaMensalidadeDoCliente(listaDeMensalidades);
-        matricula.setListaModalidadesDoCLiente(listaDeModalidades);
-
-        return matricula;
+        return null;
 
     }
 
@@ -161,7 +178,6 @@ public class DbMatricula {
     public Modalidade buscarModalidade(String codModalidade){
 
         int codigo = Integer.parseInt(codModalidade);
-        Modalidade modalidade = null;
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -175,9 +191,13 @@ public class DbMatricula {
             //verifica se a consulta nao esta vazia
             if(rs.isBeforeFirst()){
 
-                modalidade.setNome(rs.getString("nome"));
-                modalidade.setPreco(rs.getDouble("preco"));
+                String nome = rs.getString("nome");
+                double preco = rs.getDouble("preco");
+                int cod = rs.getInt("codigoModalidade");
+                Modalidade modalidade = new Modalidade(cod,nome, preco);
+                ConnectionFactory.closeConnection(conexao, stmt);
 
+                return modalidade;
             }
 
 
@@ -189,15 +209,13 @@ public class DbMatricula {
 
         }
 
-        return modalidade;
+        return null;
 
     }
 
     public ArrayList<Mensalidade> listarMensalidades(String codCliente){
 
         ArrayList<Mensalidade> mesalidades= null;
-        Mensalidade mensalidade = null;
-
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -208,11 +226,22 @@ public class DbMatricula {
             rs = stmt.executeQuery();
 
             //verifica se a consulta nao esta vazia
-            if(rs.isBeforeFirst()){
+            if(!rs.isBeforeFirst()){
 
-                mensalidade.setData(rs.getDate("data"));
-                mensalidade.setValor(rs.getDouble("valor"));
-                mensalidade.setPago(rs.getBoolean("pago"));
+                String dataBanco = rs.getString("data");
+                java.util.Date data = new java.util.Date();
+                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    data = (java.util.Date) formato.parse(dataBanco);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                double valor = rs.getDouble("valor");
+                boolean pago = rs.getBoolean("pago");
+
+                Mensalidade mensalidade = new Mensalidade(data,valor);
+                mensalidade.setPago(pago);
                 mesalidades.add(mensalidade);
 
             }
@@ -343,7 +372,16 @@ public class DbMatricula {
                     " pago = ?, codMatricula = ? WHERE (codCliente =" +cpf+") AND data ="+mensalidade.getData());
 
             stmt.setString(1, cpf);
-            stmt.setDate(2, (Date) mensalidade.getData());
+
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(mensalidade.getData());
+            int dia = cal.get(Calendar.DAY_OF_MONTH);
+            int mes = cal.get(Calendar.MONTH)+1;
+            int ano = cal.get(Calendar.YEAR);
+
+            String data = dia+"/"+mes+"/"+ano;
+
+            stmt.setString(2, data );
             stmt.setDouble(3, mensalidade.getValor());
             stmt.setBoolean(4, mensalidade.isPago());
             stmt.setString(5, cpf);
