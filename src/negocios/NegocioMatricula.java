@@ -87,6 +87,7 @@ public class NegocioMatricula {
             ArrayList<Mensalidade> listaMensalidades = dbMensalidade.criarMensalidades(cliente, quantidadeMeses, precoFinal);
 
             cliente.setMatriculado(true);
+            dbCliente.atualizarCliente(cliente.getCpf(), cliente);
 
             Matricula matricula = new Matricula(cliente, modalidadesDoCliente, listaMensalidades);
 
