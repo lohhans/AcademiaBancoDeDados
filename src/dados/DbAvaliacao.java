@@ -7,7 +7,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class DbAvaliacao {
@@ -37,9 +40,16 @@ public class DbAvaliacao {
             stmt.setDouble(12,avaliacao.getCoxaEsquerda());
             stmt.setDouble(13,avaliacao.getPanturrilhaDireita());
             stmt.setDouble(14,avaliacao.getPanturrilhaEsquerda());
-            java.sql.Date sqlDate = new java.sql.Date(avaliacao.getData().getDate());
-            stmt.setDate(15, sqlDate);
 
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(avaliacao.getData());
+            int dia = cal.get(Calendar.DAY_OF_MONTH);
+            int mes = cal.get(Calendar.MONTH)+1;
+            int ano = cal.get(Calendar.YEAR);
+
+            String data = dia+"/"+mes+"/"+ano;
+
+            stmt.setString(15, data);
 
             stmt.executeUpdate();
 
@@ -83,7 +93,16 @@ public class DbAvaliacao {
                 double coxaEsquerda = rs.getDouble("coxaEsquerda");
                 double panturrilhaDireita = rs.getDouble("panturrilhaDireita");
                 double panturrilhaEsquerda = rs.getDouble("panturrilhaEsquerda");
-                Date data = rs.getDate("data");
+                String dataB = rs.getString("data");
+
+                java.util.Date data = new java.util.Date();
+                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    data = (java.util.Date) formato.parse(dataB);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
 
                 Avaliacao avaliacao = new Avaliacao(circunferenciaAbdominal, torax, cintura, quadril, antebracoDireito, antebracoEsquerdo, bracoDireito, bracoEsquerdo, coxaDireita, coxaEsquerda, panturrilhaDireita, panturrilhaEsquerda);
                 avaliacao.setData(data);
