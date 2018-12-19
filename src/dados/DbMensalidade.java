@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class DbMensalidade {
 
@@ -34,9 +35,13 @@ public class DbMensalidade {
         //pega a data atual e quebra em inteiros
         java.util.Date dataAtual = new java.util.Date();
 
-        int diaHoje = dataAtual.getDay();
-        int mesHoje = dataAtual.getMonth();
-        int anoHoje = dataAtual.getYear()+1900;
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(dataAtual);
+        int diaHoje = cal.get(Calendar.DAY_OF_MONTH);
+        int mesHoje = cal.get(Calendar.MONTH)+1;
+        int anoHoje = cal.get(Calendar.YEAR);
+
+        String dataNasc = diaHoje+"/"+mesHoje+"/"+anoHoje;
 
         //gera as datas das mensalidades
         for(int i = 0; i < quantidadeMeses; i++){
@@ -67,11 +72,19 @@ public class DbMensalidade {
         PreparedStatement stmt = null;
 
         try {
-            stmt = conexao.prepareStatement("INSERT INTO mensalidade (codCliente, data, valor, pago) VALUES (?, ?, ?, ?)");
+            stmt = conexao.prepareStatement("INSERT INTO mensalidade (codCliente, data, valor, pago) VALUES ( ?, ?, ?, ?)");
 
             stmt.setString(1, cpfCliente);
-            java.sql.Date sqlDate = new java.sql.Date(mensalidade.getData().getDate());
-            stmt.setDate(2, sqlDate);
+
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(mensalidade.getData());
+            int dia = cal.get(Calendar.DAY_OF_MONTH);
+            int mes = cal.get(Calendar.MONTH)+1;
+            int ano = cal.get(Calendar.YEAR);
+
+            String data = dia+"/"+mes+"/"+ano;
+
+            stmt.setString(2, data);
             stmt.setDouble(3, mensalidade.getValor());
             stmt.setBoolean(4, mensalidade.isPago());
 
