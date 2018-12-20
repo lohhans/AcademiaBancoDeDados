@@ -50,7 +50,7 @@ public class DbCliente {
 
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
 
         } finally {
             ConnectionFactory.closeConnection(conexao, stmt);
@@ -110,7 +110,7 @@ public class DbCliente {
 
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
 
         }finally {
             ConnectionFactory.closeConnection(conexao, stmt, rs);
@@ -174,7 +174,7 @@ public class DbCliente {
 
 
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
 
         }finally {
             ConnectionFactory.closeConnection(conexao, stmt, rs);
@@ -204,7 +204,7 @@ public class DbCliente {
                 vazio = false;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(conexao, stmt, rs);
 
@@ -250,7 +250,7 @@ public class DbCliente {
 
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
 
         } finally {
             ConnectionFactory.closeConnection(conexao, stmt);
@@ -306,7 +306,7 @@ public class DbCliente {
 
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 
         return  listaDePessoas;

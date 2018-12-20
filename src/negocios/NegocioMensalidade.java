@@ -17,6 +17,9 @@ public class NegocioMensalidade {
 
     public boolean conferirMensalidadeTotalmentePaga(Matricula matricula){
         boolean foiPago = false;
+
+        System.out.println(matricula.getListaMensalidadeDoCliente().get(matricula.getListaMensalidadeDoCliente().size()-1).getValor());
+
         if (matricula.getListaMensalidadeDoCliente().get(matricula.getListaMensalidadeDoCliente().size()-1).isPago()) {
             foiPago = true;
         }

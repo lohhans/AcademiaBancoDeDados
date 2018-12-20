@@ -49,7 +49,7 @@ public class DbFuncionario {
 
 
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
 
         } finally {
             ConnectionFactory.closeConnection(conexao, stmt);
@@ -165,7 +165,7 @@ public class DbFuncionario {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
 
         }finally {
             ConnectionFactory.closeConnection(conexao, stmt, rs);
@@ -194,7 +194,7 @@ public class DbFuncionario {
                 vazio = false;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(conexao, stmt, rs);
 
@@ -238,7 +238,7 @@ public class DbFuncionario {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
 
         } finally {
             ConnectionFactory.closeConnection(conexao, stmt);
@@ -258,7 +258,7 @@ public class DbFuncionario {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
 
         } finally {
             ConnectionFactory.closeConnection(conexao, stmt);

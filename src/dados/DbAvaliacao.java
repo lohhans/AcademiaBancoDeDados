@@ -55,7 +55,7 @@ public class DbAvaliacao {
 
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
 
         } finally {
             ConnectionFactory.closeConnection(conexao, stmt);
@@ -112,7 +112,7 @@ public class DbAvaliacao {
 
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 
      return avaliacoes;
