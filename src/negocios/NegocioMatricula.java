@@ -84,6 +84,7 @@ public class NegocioMatricula {
             double descontoTotal = descontoPorEndereco + descontoPorQuantiaMeses;
             double precoFinal = precoMatricula - descontoTotal;
 
+
             ArrayList<Mensalidade> listaMensalidades = dbMensalidade.criarMensalidades(cliente, quantidadeMeses, precoFinal);
 
             cliente.setMatriculado(true);
@@ -93,6 +94,7 @@ public class NegocioMatricula {
 
             //Usou metodo do Repositorio e criou
             dbMatricula.matricular(matricula);
+
 
         } else if (cliente.isMatriculado()){
             throw new ClienteJaMatriculadoException();

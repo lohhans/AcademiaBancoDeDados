@@ -18,13 +18,6 @@ public class DbMatricula {
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
 
-
-        for (int i = 0; i < matricula.getListaModalidadesDoCLiente().size(); i++) {
-            int codModalidade = matricula.getListaModalidadesDoCLiente().get(i).getCodigoModalidade();
-            adicionarMatriculaModalidade( matricula.getCliente().getCpf(), codModalidade);
-        }
-
-
         try {
             stmt = conexao.prepareStatement("INSERT INTO matricula (cpfCliente) VALUES (?) ");
 
@@ -32,6 +25,17 @@ public class DbMatricula {
 
            stmt.executeUpdate();
 
+
+            for (int i = 0; i < matricula.getListaModalidadesDoCLiente().size(); i++) {
+                int codModalidade = matricula.getListaModalidadesDoCLiente().get(i).getCodigoModalidade();
+                adicionarMatriculaModalidade( matricula.getCliente().getCpf(), codModalidade);
+            }
+
+            for (int i = 0; i < matricula.getListaMensalidadeDoCliente().size(); i++) {
+//                int codModalidade = matricula.getListaModalidadesDoCLiente().get(i).getCodigoModalidade();
+                System.out.println(matricula.getListaMensalidadeDoCliente().get(i).getValor());
+                cadastrarMensalidade( matricula.getCliente().getCpf(), matricula.getListaMensalidadeDoCliente().get(i));
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -44,7 +48,6 @@ public class DbMatricula {
     }
 
     public void adicionarMatriculaModalidade( String codMatricula, int codModalidade){
-
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -120,6 +123,9 @@ public class DbMatricula {
                 ArrayList<Modalidade> listaDeModalidades = listarModalidades(cliente.getCpf());
                 ArrayList<Mensalidade> listaDeMensalidades = listarMensalidades(cliente.getCpf());
                 Matricula matricula = new Matricula(clienteBanco,listaDeModalidades, listaDeMensalidades);
+
+
+                System.out.println("tamanho"+matricula.getListaMensalidadeDoCliente().size());
                 ConnectionFactory.closeConnection(conexao, stmt, rs);
                 return matricula;
             }
@@ -142,8 +148,8 @@ public class DbMatricula {
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        ArrayList<Modalidade> modalidades = null;
-        ArrayList<String> idModalidades= null;
+        ArrayList<Modalidade> modalidades = new ArrayList<Modalidade>();
+        ArrayList<Integer> idModalidades= new ArrayList<Integer>();
 
         try {
 
@@ -152,7 +158,7 @@ public class DbMatricula {
 
             while (rs.next()){
 
-                idModalidades.add("codModalidade");
+                idModalidades.add(rs.getInt("codModalidade"));
 
             }
 
@@ -167,7 +173,8 @@ public class DbMatricula {
 
         for (int i = 0; i < idModalidades.size(); i++) {
 
-            Modalidade modalidade = buscarModalidade(idModalidades.get(i));
+            String cod = idModalidades.get(i).toString();
+            Modalidade modalidade = buscarModalidade(cod);
             modalidades.add(modalidade);
         }
 
@@ -177,6 +184,8 @@ public class DbMatricula {
 
     public Modalidade buscarModalidade(String codModalidade){
 
+        System.out.println(codModalidade);
+
         int codigo = Integer.parseInt(codModalidade);
 
         Connection conexao = ConnectionFactory.getConnection();
@@ -185,8 +194,10 @@ public class DbMatricula {
 
 
         try {
-            stmt = conexao.prepareStatement("SELECT * FROM modalidade WHERE codigoModalidade="+codigo);
+            stmt = conexao.prepareStatement("SELECT * FROM modalidade WHERE codigoModalidade=?");
+            stmt.setInt(1,codigo);
             rs = stmt.executeQuery();
+            rs.next();
 
             //verifica se a consulta nao esta vazia
             if(rs.isBeforeFirst()){
@@ -395,6 +406,40 @@ public class DbMatricula {
 
         }
 
+    }
+
+
+    public void cadastrarMensalidade(String cpfCliente, Mensalidade mensalidade){
+
+        Connection conexao = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = conexao.prepareStatement("INSERT INTO mensalidade (codCliente, data, valor, pago) VALUES ( ?, ?, ?, ?)");
+
+            stmt.setString(1, cpfCliente);
+
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(mensalidade.getData());
+            int dia = cal.get(Calendar.DAY_OF_MONTH);
+            int mes = cal.get(Calendar.MONTH)+1;
+            int ano = cal.get(Calendar.YEAR);
+
+            String data = dia+"/"+mes+"/"+ano;
+
+            stmt.setString(2, data);
+            stmt.setDouble(3, mensalidade.getValor());
+            stmt.setBoolean(4, mensalidade.isPago());
+
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            ConnectionFactory.closeConnection(conexao, stmt);
+
+        }
     }
 
 }

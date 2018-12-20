@@ -23,7 +23,8 @@ public class DbMensalidade {
         //adicionando a data especifica a determinada mensalidade
         for(int i = 0; i<quantidadeMeses; i++){
             Mensalidade mensalidade = new Mensalidade(listaDatas.get(i), valor);
-            cadastrarMensalidade(cliente.getCpf(), mensalidade);
+            listaMensalidades.add(mensalidade);
+            //cadastrarMensalidade(cliente.getCpf(), mensalidade);
         }
 
         return listaMensalidades;
@@ -66,36 +67,4 @@ public class DbMensalidade {
     }
 
 
-    public void cadastrarMensalidade(String cpfCliente, Mensalidade mensalidade){
-
-        Connection conexao = ConnectionFactory.getConnection();
-        PreparedStatement stmt = null;
-
-        try {
-            stmt = conexao.prepareStatement("INSERT INTO mensalidade (codCliente, data, valor, pago) VALUES ( ?, ?, ?, ?)");
-
-            stmt.setString(1, cpfCliente);
-
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(mensalidade.getData());
-            int dia = cal.get(Calendar.DAY_OF_MONTH);
-            int mes = cal.get(Calendar.MONTH)+1;
-            int ano = cal.get(Calendar.YEAR);
-
-            String data = dia+"/"+mes+"/"+ano;
-
-            stmt.setString(2, data);
-            stmt.setDouble(3, mensalidade.getValor());
-            stmt.setBoolean(4, mensalidade.isPago());
-
-            stmt.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-
-        } finally {
-            ConnectionFactory.closeConnection(conexao, stmt);
-
-        }
-    }
 }
