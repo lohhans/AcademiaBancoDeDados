@@ -58,7 +58,7 @@ $ USE academia;
 
 12 - Pronto, tudo certo para começar a implementar o Banco de Dados.
 
-*13* - Para criar as tabelas do banco com o objetivo de fazer a aplicação funcionar localmente, use um gerenciador SQL (exemplo: [DBeaver](https://dbeaver.io/download/)) e siga o tutorial para criar criar as tabelas aqui: [TUTORIAL](./SQL_das_tabelas.pdf)
+*13* - Para criar as tabelas do banco com o objetivo de fazer a aplicação funcionar localmente, use um gerenciador SQL (exemplo: [DBeaver](https://dbeaver.io/download/)) e siga o tutorial para criar criar as tabelas aqui: [TUTORIAL](./SQL_das_tabelas.md)
 
-> Observação: Projeto criado usando o [Java 8 (java version "1.8.0_191")](./Instalar_Java_8.pdf).  
+> Observação: Projeto criado usando o [Java 8 (java version "1.8.0_191")](./Instalar_Java_8.md).  
 > Projeto reutilizado da disciplina de [POO](https://github.com/lohhans/projetoPOO), aplicando os conceitos de Banco de Dados.
